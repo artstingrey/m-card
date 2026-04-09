@@ -1,0 +1,241 @@
+@use '@/app/styles/core/variables' as *;
+
+.hero {
+    padding-top: 90px;
+    position: relative;
+    height: 1000px;
+
+    p {
+        margin: 24px 0 0 0;
+        font-size: 14px;
+        color: $color-white;
+    }
+}
+
+.heroTextPart {
+    width: 95%;
+}
+
+.heroTextPartWrapper {
+    p {
+        display: none;
+    }
+}
+
+.heroBgMob {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.heroBg {
+    display: none;
+}
+
+.heroContainer {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+}
+
+.heroPayments {
+    display: flex;
+    align-items: center;
+    column-gap: 12px;
+}
+
+.heroStores {
+    display: flex;
+    column-gap: 8px;
+    align-items: center;
+}
+
+.heroApple {
+    width: 46px;
+    height: 18px;
+}
+
+.heroGoogle {
+    width: 46px;
+    height: 18px;
+}
+
+.heroMainText {
+    margin-top: 32px;
+}
+
+.heroFieldPart {
+    height: 40%;
+}
+
+.heroMainTextMob {
+    display: block;
+}
+
+.heroMainTextDesc {
+    display: none;
+}
+
+@media only screen and (min-width: 500px) {
+
+    .heroContainer {
+        align-items: center;
+    }
+    
+    .heroTextPart {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .heroFieldPart {
+        width: 100%;
+        max-width: 500px;
+    }
+}
+
+@media only screen and (min-width: $break-point-tablet) {
+    .hero {
+        height: 100vh;
+    }
+
+    .heroContainer {
+        height: auto;
+    }
+
+    .heroMainText {
+        p {
+            display: none;
+        }
+    }
+
+    .heroTextPart {
+        max-width: 100%;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+
+    .heroMainText {
+        margin: 0;
+    }
+
+    .heroTextPartWrapper {
+        width: 262px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        p {
+            display: block;
+        }
+    }
+
+    .heroFieldPart {
+        max-width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 80px;
+    }
+}
+
+@media only screen and (min-width: $break-point-small) {
+
+    .hero {
+        overflow: hidden;
+    }
+
+    .heroContainer {
+        display: block;
+    }
+
+    .heroPayments {
+        flex-wrap: wrap;    
+    }
+
+    .heroStores {
+        margin-top: 10px;
+        column-gap: 16px;
+        width: 100%;
+    }
+
+    .heroBgMob {
+        display: none;
+    }
+
+    .heroBg {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .heroMainTextMob {
+        display: none;
+    }
+
+    .heroMainTextDesc {
+        display: block;
+        opacity: 0;
+        width: 60%;
+        height: auto;
+    }
+
+    .heroApple {
+        width: 70px;
+        height: 27px;
+    }
+
+    .heroGoogle {
+        width: 76px;
+        height: 30px;
+    }
+}
+
+@media only screen and (min-width: $break-point-medium) {
+    .hero {
+        padding-top: 160px;
+
+        p {
+            font-size: 18px;
+        }
+    }
+
+    .heroFieldPart {
+        margin-top: 80px;
+    }
+}
+
+@media only screen and (min-width: $break-point-normal) {
+    .heroMainTextDesc {
+        width: 80%;
+    }
+}
+
+@media only screen and (min-width: $break-point-full-style) {
+    .hero {
+        padding-top: 210px;
+        height: calc(100vh - 210px);
+    }
+
+    .heroStores {
+        column-gap: 24px;
+        margin-top: 20px;
+    }
+
+    .heroFieldPart {
+        margin-top: 140px;
+    }
+
+    .heroMainTextDesc {
+        width: 100%;
+        max-width: 100%;
+    }
+}

@@ -1,0 +1,38 @@
+@use '@/app/styles/core/variables' as *;
+
+.socials {
+	display: flex;
+	justify-content: center;
+	column-gap: 12px;
+
+	a {
+		display: block;
+		width: 48px;
+		height: 48px;
+        
+        .hoverRect, .hoverPath {
+            transition: fill 0.3s;
+        }
+
+        &:hover {
+            .hoverRect {
+                fill: #262B1A;
+            }
+
+            .hoverPath {
+                fill: #D1F249;
+            }
+        }
+	}
+}
+
+@media only screen and (min-width: $break-point-small) {
+    .socials {
+        column-gap: 16px;
+
+        a {
+            width: 56px;
+            height: 56px;
+        }
+    }   
+}

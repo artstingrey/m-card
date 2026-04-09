@@ -1,0 +1,219 @@
+@use './variables' as *;
+
+.field-wrapper {
+    margin-top: 24px;
+    
+    &:first-child {
+        margin: 0;
+    }
+
+    .s-input {
+        margin-top: 8px;
+    }
+}
+
+input {
+    display: block;
+}
+
+.s-label {
+    display: flex;
+    column-gap: 8px;
+    font-size: 14px;
+    line-height: 16px;
+    text-transform: uppercase;
+    color: $color-white;
+
+    .icon {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.s-input {
+    position: relative;
+    
+    input[type="text"], input[type="email"] {
+        width: 100%;
+        height: 43px;
+        background: #0E0E0E;
+        border: 1px solid $color-black90;
+        padding-left: 12px;
+        padding-right: 12px;
+        position: relative;
+        font-size: 16px;
+        line-height: 18px;
+        color: $color-white;
+
+        &::placeholder {
+           font-size: 16px;
+            line-height: 18px;
+            color: $color-grey-80;
+        }
+
+        &:disabled {
+            opacity: 0.7;
+        }
+    }
+
+    input[type="file"] {
+        width: 120px;
+        height: 32px;
+        position: relative;
+        z-index: 2;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    button[type="submit"], input[type="submit"] {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+        
+        svg {
+            display: block;
+            width: 17px;
+            height: 17px;
+        }
+
+        &:hover {
+            
+        }
+    }
+
+    &.s-input--error {
+        input {
+            box-shadow: 0 0 5px 1px rgba(243, 56, 56, 0.75) inset;
+            &:focus-visible {
+                outline: none;
+            }
+        
+            &:focus {
+                outline: none;
+            }
+        }
+
+        .styled-path {
+            fill: rgba(243, 56, 56, 0.75);
+        }
+    }
+}
+
+.s-input-file-decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    height: 32px;
+    background: #1D1D1D;
+    border: 1px solid $color-black90;
+    padding-left: 6px;
+    padding-right: 10px;
+    display: flex;
+    column-gap: 8px;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: $color-grey-60;
+
+}
+
+.s-choise-container {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+
+    font-size: 16px;
+    line-height: 18px;
+    color: $color-grey-70;
+    transition: color 0.3s;
+
+    &.active {
+        color: $color-white;
+    }
+}
+
+.s-checkbox {
+    width: 24px;
+    height: 24px;
+    position: relative;
+
+    input[type="checkbox"], input[type="radio"] {
+        position: relative;
+        z-index: 2;
+        opacity: 0;
+        display: block;
+        width: 24px;
+        height: 24px;
+        margin: 0;
+    }
+
+    span {
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+    }
+
+    svg {
+        .active-path, .active-path-check {
+            transition: opacity 0.3s, stroke 0.3s;
+        }
+    }
+
+    &.active {
+        svg {
+           .active-path {
+                opacity: 1;
+                stroke: $color-white; 
+           }
+
+           .active-path-check {
+                opacity: 1;
+                stroke: $color-orange;
+           }
+        }
+    }
+}
+
+@media only screen and (min-width: $break-point-small) {
+
+    .field-wrapper {
+        margin-top: 16px;
+    }
+
+    .s-label {
+        font-size: 16px;
+        line-height: 18px;
+    }
+
+    .s-input {
+        input[type="text"], input[type="email"] {
+            font-size: 16px;
+            line-height: 18px;
+
+            &::placeholder {
+                font-size: 16px;
+                line-height: 18px;     
+            }
+        }    
+    } 
+
+    .s-input-file-decoration {
+        font-weight: 500;
+    }
+
+    .s-choise-container {
+        font-size: 18px;
+        line-height: 20px;
+    }
+}

@@ -1,0 +1,83 @@
+@use '@/app/styles/core/variables' as *;
+
+.mobile-menu-section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100vh;
+    padding: 8px;
+    overflow: auto;
+    opacity: 0;
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(20px);
+    transition: opacity 0.3s;
+
+    &.active {
+        opacity: 1;
+        z-index: 110;
+    }
+}
+
+.mobile-menu-section-wrapper {
+    background: $color-white;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.mobile-menu__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mobile-menu__logo {
+    width: 122px;
+    height: 32px;
+}
+
+.mobile-menu__close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+
+    svg {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+.mobile-menu__list {
+    margin-top: 12px;
+
+    a {
+        display: flex;
+        height: 54px;
+        align-items: center;
+        border-bottom: 2px dashed rgba(137, 134, 131, 0.5);
+        font-size: 16px;
+        color: $color-black;
+        text-decoration: none;
+    }
+
+    li {
+        &:first-child {
+            a {
+                border-top: 2px dashed rgba(137, 134, 131, 0.5);
+            }
+        }
+    }
+}
+
+.mobile-menu__footer {
+    margin-top: 18px;
+}
+
+@media only screen and (min-width: $break-point-small) {
+    .mobile-menu-section {
+        display: none;
+    }    
+}

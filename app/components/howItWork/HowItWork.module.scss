@@ -1,0 +1,204 @@
+@use '@/app/styles/core/variables' as *;
+
+.howItWork {
+    h2 {
+        margin-top: 12px;
+    }
+}
+
+.cards {
+    margin-top: 32px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+    max-width: 500px;
+
+    h3 {
+        margin: 24px 0 0 0;
+        color: $color-blue;
+    }
+
+    p {
+        margin: 0;
+        span {
+            display: block;
+            padding-top: 24px;
+        }
+    }
+}
+
+.card {
+    position: relative;
+    border-radius: 40px;
+    padding: 16px;
+    background: $color-black90;
+}
+
+.cardTextPart {
+    position: relative;
+    padding: 12px 12px 0 12px;
+}
+
+.icon {
+    width: 44px;
+    height: 44px;
+
+    svg {
+        display: block;
+        height: 100%;
+    }
+}
+
+.cardImagePart {
+    margin-top: 24px;
+    min-height: 40px;
+    border-radius: 30px;
+    overflow: hidden;
+    background: #000000;
+}
+
+.number {
+    padding: 0;
+    position: absolute;
+    top: 28px;
+    right: 28px;
+    font-family: $font-bion;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 120%;
+    color: $color-blue;
+}
+
+@media only screen and (min-width: $break-point-tablet) {
+    .cards {
+        margin-left: 0;
+        margin-right: 0;
+        max-width: 100%;
+        column-gap: 12px;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+
+    .card {
+        width: calc(50% - 6px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
+
+@media only screen and (min-width: $break-point-small) {
+    .howItWork {
+        h2 {
+            margin-top: 24px;
+            br {
+                display: none;
+            }
+        }    
+    }
+
+    .cards {
+        margin-top: 40px;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+
+    .card {
+        width: calc(25% - 9px);
+        flex-direction: columns;
+        column-gap: 10px;
+        transition: width 0.5s;
+    }
+
+    .cardTextPart {
+        display: flex;
+        align-items: flex-end;
+        padding: 0;
+        padding-right: 10px;
+    }
+}
+
+@media only screen and (min-width: $break-point-normal) {
+    .cards {
+        margin-top: 60px;
+
+        h3 {
+            margin-top: 30px;
+        }
+
+        p {
+            max-height: 0;
+            overflow: hidden;
+            transition: height 0.5s;
+
+            span {
+                padding-top: 30px;
+            }
+        }
+
+        .number {
+            max-height: 100%;
+            transition: none;
+        }
+    }
+
+    .card {
+        border-radius: 40px;
+        padding: 20px 20px 20px 28px;   
+        column-gap: 20px;
+        flex-direction: row;
+
+        &.active {
+            width: 46%;
+            max-width: 862px;
+            flex-shrink: 0;
+            
+            p {
+                max-height: 200px;
+            }
+        }
+    }
+
+    .cardTextPart {
+        padding-right: 20px;
+        padding-top: 80px;
+    }
+
+    .icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .cardImagePart {
+        width: 100%;
+        margin: 0;
+        border-radius: 40px;
+    }
+
+    .number {
+        top: 24px;
+        right: auto;
+        left: 28px;
+        font-size: 28px;
+    }
+}
+
+@media only screen and (min-width: $break-point-full-style) {
+    .card {
+        border-radius: 56px;
+        padding: 24px 24px 24px 36px;
+        column-gap: 40px;
+    }
+
+    .cardTextPart {
+        padding-right: 40px;
+    }
+
+    .number {
+        top: 24px;
+        left: 36px;
+        font-size: 32px;
+    }
+}

@@ -1,0 +1,202 @@
+@use './variables' as *;
+
+h1, .h1-style {
+	font-weight: 600;
+	font-size: 50px;
+	line-height: 50px;
+	text-transform: uppercase;
+	letter-spacing: -3px;
+	margin: 0;
+}
+
+h2 {
+	font-family: $font-bion;
+	font-weight: 700;
+	font-size: 48px;
+	line-height: 90%;
+	margin: 0 0 0 0;
+	transition: color 0.3s;
+	letter-spacing: -6%;
+	text-transform: uppercase;
+	white-space: pre-line;
+	color: $color-black;
+}
+
+.h2-medium {
+	font-size: 40px;
+	line-height: 40px;
+	letter-spacing: 0;
+}
+
+.h2-small {
+	font-weight: 500;
+	font-size: 32px;
+	line-height: 32px;
+	letter-spacing: -2px;
+	margin: 0 0 24px 0;	
+}
+
+.about-h2 {
+	font-size: 32px;
+	line-height: 32px;
+	font-weight: 400;
+	letter-spacing: -2px;
+
+	span {
+		display: block;
+		font-size: 14px;
+		font-weight: 600;
+		line-height: 14px;
+		letter-spacing: 0;
+		margin-bottom: 24px;
+	}
+}
+
+h3 {
+	font-family: $font-bion;
+	font-size: 32px;
+	font-weight: 700;
+	line-height: 100%;
+	margin: 0;
+	letter-spacing: -5%;
+	text-transform: uppercase;
+	white-space: pre-line;
+}
+
+.h3-small {
+	font-size: 32px;
+	font-weight: 500;
+	line-height: 32px;
+	margin: 0 0 16px 0;
+}
+
+h4 {
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 18px;
+	margin: 0 0 24px 0;
+}
+
+@media only screen and (min-width: $break-point-small) {
+	h1,.h1-style {
+		font-size: 4.0vw;
+		line-height: 4.0vw;
+		// line-height: 4vw;
+		// margin: 0 0 2.2vw 0;
+	}
+	
+	.h2-medium {
+		font-size: 44px;
+		line-height: 44px;
+	}
+
+	.h2-small {
+		font-size: 36px;
+		line-height: 36px;	
+	}
+
+	h2, .h2-dynamic-style {
+		font-size: 5.5vw;
+	}
+
+	h3 {
+		font-size: 36px;
+	}
+
+	h4, .h4-dynamic-style {
+		font-size: 2.6vw;
+		line-height: 2.6vw;
+		margin: 0 0 1.8vw 0;
+	}
+
+	.about-h2 {
+		font-size: 40px;
+		line-height: 40px;
+		overflow: hidden;
+
+		span {
+			display: inline-block;
+			font-size: 16px;
+			line-height: 16px;
+			margin-bottom: 0;
+			width: 200px;
+			float: left;
+		}
+	}
+}
+
+@media only screen and (min-width: $break-point-medium) {
+	.h2-small {
+		font-size: 40px;
+		line-height: 40px;	
+	}
+
+	.about-h2 {
+		font-size: 48px;
+		line-height: 48px;
+	}
+}
+
+@media only screen and (min-width: $break-point-normal) {
+	h2 {
+		font-size: 80px;
+	}
+	
+	.about-h2 {
+		font-size: 56px;
+		line-height: 56px;	
+		
+		span {
+			font-size: 18px;
+			line-height: 18px;
+		}
+	}	
+	
+	h3 {
+		font-size: 42px;
+	}
+}
+
+@media only screen and (min-width: $break-point-full-style) {
+	h1,.h1-style {
+		font-size: 70px;
+		line-height: 70px;	
+		margin: 0 0 0 0;
+	}
+
+	h2, .h2-dynamic-style {
+		font-size: 100px;
+	}
+
+	.h2-medium {
+		font-size: 48px;
+		line-height: 48px;
+	}
+	
+	.h2-small {
+		font-size: 48px;
+		line-height: 48px;	
+		margin-bottom: 44px;
+	}
+
+	.about-h2 {
+		font-size: 70px;
+		line-height: 70px;	
+		
+		span {
+			font-size: 20px;
+			line-height: 20px;
+			width: 344px;
+		}
+	}	
+
+	h3, .h3-dynamic-style {
+		font-size: 52px;
+	}
+	
+	h4, .h4-dynamic-style {
+		font-size: 40px;
+		line-height: 40px;
+		margin: 0 0 32px 0;
+	}
+}

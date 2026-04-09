@@ -3,15 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --webpack",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
+    "@zeit/next-sass": "^1.0.1",
+    "clsx": "^2.1.1",
     "next": "16.2.1",
+    "node-sass": "^9.0.0",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "sass": "^1.98.0"
   },
   "devDependencies": {
     "@types/node": "^20",

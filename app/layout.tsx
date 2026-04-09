@@ -1,16 +1,7 @@
+import {inter, bion} from './fonts';
+import "@/app/styles/global.scss";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import Header from './components/core/header/Header';
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,9 +13,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const className = `${inter.variable} ${bion.variable}`;
+
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body>{children}</body>
+    <html lang="en" className={className}>
+      <body>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
