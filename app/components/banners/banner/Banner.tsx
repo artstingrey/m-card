@@ -2,26 +2,27 @@ import clsx from 'clsx';
 import styles from './Banner.module.scss';
 import Image from "next/image";
 import { BaseImage } from '@/app/config/types';
-import { GetHelp, OwnIt, Spend, TopPopup } from '../wordsSVG';
+import { GetHelp, OwnIt, Spend, TopUp } from '../wordsSVG';
 
 type BannerType = {
     title: string;
     text: string;
     color: string;
+    textColor?: 'black' | 'white';
     image: BaseImage;
     imagePos?: "center" | "bottom"
-    wordType: "topPopup" | "spend" | "ownIt" | "getHelp";
+    wordType: "topUp" | "spend" | "ownIt" | "getHelp";
     wordColor: string;
 };
 
 const wordsComponent = {
-    topPopup: TopPopup,
+    topUp: TopUp,
     spend: Spend,
     ownIt: OwnIt,
     getHelp: GetHelp
 };
 
-export default function Banner ({title,text,color,image,imagePos = "center", wordType, wordColor}:BannerType) {
+export default function Banner ({title,text,color,textColor = 'black',image,imagePos = "center", wordType, wordColor}:BannerType) {
     const WordComponent = wordsComponent[wordType];
     return (
         <div className={styles.banner} style={{ backgroundColor: color }}>
@@ -32,7 +33,7 @@ export default function Banner ({title,text,color,image,imagePos = "center", wor
                 <div className={clsx(styles.image, imagePos == "bottom" ? styles.imageBottom : '')}>
                     <Image src={image.src}  alt={image.alt || "Banner image"} quality={100} width={image.width} height={image.height}/>    
                 </div>
-                <div className={styles.textPart}>
+                <div className={clsx(styles.textPart, textColor == 'white' ? styles.textPartWhite : '')}>
                     <h2>{title}</h2>
                     <p>{text}</p>
                     <div className={clsx(styles.launch, "s-button-launch-wrapper")}>

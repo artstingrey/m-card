@@ -9,13 +9,13 @@ export default function Banners () {
             text: 'Отправляйте USDT или другую поддерживаемую криптовалюту и начните тратить всего за несколько секунд',
             color: '#F4EFE8',
             image: {
-                src: 'images/banners/banner1.png',
+                src: '/images/banners/banner1.png',
                 width: 1840,
                 height: 834,
                 alt: 'Banner image'
             },
-            imagePos: 'center',
-            wordType: 'topUpp',
+            imagePos: 'center' as const,
+            wordType: 'topUp' as const,
             wordColor: '#ECE3DB'
         },
         {
@@ -23,13 +23,13 @@ export default function Banners () {
             text: 'Переведите рубли через СБП — и баланс вашей карты будет пополнен мгновенно',
             color: '#EEC9F5',
             image: {
-                src: 'images/banners/banner2.png',
-                width: 1440,
-                height: 816,
+                src: '/images/banners/banner2.png',
+                width: 1840,
+                height: 1800,
                 alt: 'Banner image'
             },
-            imagePos: 'center',
-            wordType: 'topUpp',
+            imagePos: 'center' as const,
+            wordType: 'topUp' as const,
             wordColor: '#ECB9EB'
         },
         {
@@ -37,13 +37,13 @@ export default function Banners () {
             text: 'Ваша карта работает за границей так же просто, как дома',
             color: 'rgba(0, 180, 255, 0.5)',
             image: {
-                src: 'images/banners/banner3.png',
+                src: '/images/banners/banner3.png',
                 width: 1840,
                 height: 1800,
                 alt: 'Banner image'
             },
-            imagePos: 'bottom',
-            wordType: 'spend',
+            imagePos: 'bottom' as const,
+            wordType: 'spend' as const,
             wordColor: '#73CCF7'
         },
         {
@@ -51,13 +51,13 @@ export default function Banners () {
             text: 'От подписок на стриминг до бронирования путешествий — всё оплачивается без проблем.',
             color: '#F4EFE8',
             image: {
-                src: 'images/banners/banner4.png',
+                src: '/images/banners/banner4.png',
                 width: 1840,
                 height: 1800,
                 alt: 'Banner image'
             },
-            imagePos: 'bottom',
-            wordType: 'spend',
+            imagePos: 'bottom' as const,
+            wordType: 'spend' as const,
             wordColor: '#ECE3DB'
         },
         {
@@ -65,34 +65,35 @@ export default function Banners () {
             text: 'Мы не собираем больше информации, чем необходимо. Без долгих проверок — ваша карта готова всего за 60 секунд.',
             color: '#EEC9F5',
             image: {
-                src: 'images/banners/banner5.png',
-                width: 1287,
-                height: 821,
+                src: '/images/banners/banner5.png',
+                width: 1840,
+                height: 1800,
                 alt: 'Banner image'
             },
-            imagePos: 'center',
-            wordType: 'ownIt',
+            imagePos: 'center' as const,
+            wordType: 'ownIt' as const,
             wordColor: '#ECB9EB'
         },
         {
             title: 'Поддержка 24/7',
             text: 'Помощь всегда рядом — наша команда на связи днём и ночью.',
             color: '#1E1E1E',
+            textColor: 'white' as const,
             image: {
-                src: 'images/banners/banner6.png',
+                src: '/images/banners/banner6.png',
                 width: 1840,
                 height: 1800,
                 alt: 'Banner image'
             },
-            imagePos: 'center',
-            wordType: 'getHelp',
+            imagePos: 'center' as const,
+            wordType: 'getHelp' as const,
             wordColor: '#1E1E1E'
         }
     ];
     return (
         <section className={clsx("section-v-gap-0-64",styles.banners)}>
             {bannersList.map((option, index) => {
-                return <Banner key={'banner-' + index} title={option.title} text={option.text} color={option.color} image={option.image} imagePos={option.imagePos} wordType={option.wordType} wordColor={option.wordColor}/>
+                return <Banner key={'banner-' + index} title={option.title} text={option.text} color={option.color} textColor={option?.textColor} image={option.image} imagePos={option.imagePos} wordType={option.wordType} wordColor={option.wordColor}/>
             })}
         </section>
     );

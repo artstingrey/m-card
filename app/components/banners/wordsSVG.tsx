@@ -2,7 +2,7 @@ type wordSVGType = {
     color: string;
 }
 
-export function TopPopup ({color = 'white'}:wordSVGType) {
+export function TopUp ({color = 'white'}:wordSVGType) {
     return (
         <svg width="1757" height="696" viewBox="0 0 1757 696" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clipPath="url(#clip0_227_11006)">
