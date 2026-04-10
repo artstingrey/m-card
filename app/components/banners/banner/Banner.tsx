@@ -1,16 +1,41 @@
 import clsx from 'clsx';
 import styles from './Banner.module.scss';
 import Image from "next/image";
+import { BaseImage } from '@/app/config/types';
+import { GetHelp, OwnIt, Spend, TopPopup } from '../wordsSVG';
 
-export default function Banners () {
+type BannerType = {
+    title: string;
+    text: string;
+    color: string;
+    image: BaseImage;
+    imagePos?: "center" | "bottom"
+    wordType: "topPopup" | "spend" | "ownIt" | "getHelp";
+    wordColor: string;
+};
+
+const wordsComponent = {
+    topPopup: TopPopup,
+    spend: Spend,
+    ownIt: OwnIt,
+    getHelp: GetHelp
+};
+
+export default function Banner ({title,text,color,image,imagePos = "center", wordType, wordColor}:BannerType) {
+    const WordComponent = wordsComponent[wordType];
     return (
-        <div className={styles.banner}>
+        <div className={styles.banner} style={{ backgroundColor: color }}>
+            <div className={styles.bannerHeading}>
+                <WordComponent color={wordColor} />
+            </div>
             <div className={styles.bannerWrapper}>
-                <div className={styles.image}></div>
+                <div className={clsx(styles.image, imagePos == "bottom" ? styles.imageBottom : '')}>
+                    <Image src={image.src}  alt={image.alt || "Banner image"} quality={100} width={image.width} height={image.height}/>    
+                </div>
                 <div className={styles.textPart}>
-                    <h2>Пополняйте криптой</h2>
-                    <p>Отправляйте USDT или другую поддерживаемую криптовалюту и начните тратить всего за несколько секунд</p>
-                    <div className="s-button-launch-wrapper">
+                    <h2>{title}</h2>
+                    <p>{text}</p>
+                    <div className={clsx(styles.launch, "s-button-launch-wrapper")}>
                         <a href="#" className="s-button">Запустить MCard</a>
                         <button className="qr-button">
                             <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
