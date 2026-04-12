@@ -729,6 +729,11 @@ button:disabled {
 	}
 }
 
+.section-v-gap-80-112 {
+	padding-top: 80px;
+	padding-bottom: 80px;
+}
+
 @media only screen and (min-width: $break-point-tablet) {
 	.screen-section {
 		&.screen-section--mob  {
@@ -910,6 +915,11 @@ button:disabled {
 		padding-top: 80px;
 		padding-bottom: 80px;
 	}
+
+	.section-v-gap-80-112 {
+		padding-top: 100px;
+		padding-bottom: 100px;
+	}
 }
 
 @media only screen and (min-width: $break-point-medium-large) {
@@ -963,6 +973,11 @@ button:disabled {
 	.section-v-gap-0-64 {
 		padding-top: 64px;
 		padding-bottom: 64px;
+	}
+
+	.section-v-gap-80-112 {
+		padding-top: 112px;
+		padding-bottom: 112px;
 	}
 
 	.shadow-section-desctop {
