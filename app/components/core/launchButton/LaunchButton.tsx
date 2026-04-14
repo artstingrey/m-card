@@ -2,13 +2,14 @@ import clsx from "clsx";
 
 type LaunchButtonType = {
     text: string;
-    styles: string;
+    styles?: string;
+    typeButton?: "full" | "";
 };
 
-export default function LaunchButton ({text, styles}:LaunchButtonType) {
+export default function LaunchButton ({text, styles, typeButton = ""}:LaunchButtonType) {
     return (
         <div className={clsx(styles, "s-button-launch-wrapper")}>
-            <a href="#" className="s-button">{text}</a>
+            <a href="#" className={clsx("s-button", typeButton == "full" ? "s-button--full" : "")}>{text}</a>
             <button className="qr-button">
                 <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <mask id="mask0_263_49" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="35" height="35">

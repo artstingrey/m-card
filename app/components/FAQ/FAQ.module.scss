@@ -1,0 +1,138 @@
+@use '@/app/styles/core/variables' as *;
+
+.sAccordionItem {
+    padding-top: 18px;
+    padding-bottom: 18px;
+    border-top: 1px dashed #898683;
+
+    &:first-child {
+        margin: 0;
+        border: none;
+    }
+
+    &.active {
+        .sAccordionItemHead {
+            .openClose {
+                .sAccordionOpen {
+                    opacity: 0;
+                    z-index: 0;
+                }
+        
+                .sAccordionOpen {
+                    opacity: 1;
+                    z-index: 1;
+                }
+            }
+        } 
+        
+        .sAccordionItemContent {
+            max-height: 500px;
+            opacity: 1;
+            transition: max-height 0.3s, opacity 0.3s;
+        }
+    }
+}
+
+.sAccordionItemHead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: $font-bion;
+    font-weight: 700;
+    color: $color-white;
+    font-size: 26px;
+    line-height: 100%;
+    transition: color $transition-time;
+    width: 100%;
+    text-align: left;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: -5%;
+
+    p {
+        margin: 0;
+    }
+
+    .openClose {
+        width: 48px;
+        height: 48px;
+        position: relative;
+        margin-left: 20px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+
+        .sAccordionOpen {
+            opacity: 1;
+            z-index: 1;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .sAccordionOpen {
+            opacity: 0;
+            z-index: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+
+.sAccordionItemContent {
+    font-size: 16px;
+    line-height: 130%;
+    letter-spacing: -2%;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.3s, opacity 0.3s;
+
+    p {
+        margin: 32px 0 16px 0;
+    }
+}
+
+@media only screen and (min-width: $break-point-tablet) {
+
+}
+
+@media only screen and (min-width: $break-point-small) {
+    .sAccordionItem {
+        padding-top: 20px;
+        padding-bottom: 20px;
+
+        &:first-child {
+            margin: 0;
+        }
+    }
+
+    .sAccordionItemContent {
+        font-size: 18px;
+
+        p {
+            margin: 14px 0 0 0;
+        }
+    }
+}
+
+@media only screen and (min-width: $break-point-normal) {
+    .sAccordionItemHead {
+        .openClose {
+            width: 70px;
+            height: 70px;
+        }
+    }  
+}
+
+@media only screen and (min-width: $break-point-full-style) {
+
+}

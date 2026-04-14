@@ -1,0 +1,115 @@
+@use '@/app/styles/core/variables' as *;
+
+.security {
+    background: $color-black;
+
+    h2 {
+        margin: 12px auto 0 auto;
+        color: $color-white;
+        max-width: 616px;
+    }
+}
+
+.textPartButton {
+    display: none;
+}
+
+.securityCards {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    margin-top: 32px;
+}
+
+.securityCard {
+    padding: 24px 24px 32px 24px;
+    background: $color-black90;
+    border-radius: 40px;
+
+    h3 {
+        margin: 32px 0 0 0;
+        font-size: 32px;
+        color: $color-white;
+    }
+
+    p {
+        margin: 20px 0 0 0;
+        color: $color-white;
+    }
+}
+
+.icon {
+    width: 44px;
+    height: 44px;
+}
+
+@media only screen and (min-width: 500px) {
+    .securityCards {
+        flex-direction: row;
+        flex-wrap: wrap;
+        column-gap: 20px;
+    }
+
+    .securityCard {
+        width: calc(50% - 10px);
+    }
+}
+
+@media only screen and (min-width: $break-point-tablet) {
+    .bottomField {
+        display: none;
+    }
+
+    .textPartButton {
+        display: flex;
+        margin-top: 40px;
+    }
+}
+
+@media only screen and (min-width: $break-point-small) {
+    .security {
+        h2 {
+            max-width: 886px;
+            margin-top: 24px;
+        }
+    }
+
+    .securityCards {
+        flex-wrap: nowrap;
+    }
+
+    .securityCard {
+        width: calc(25% - 5px);
+    }
+}
+
+
+@media only screen and (min-width: $break-point-medium) {
+    .securityCard {
+        p {
+            font-size: 16px;
+        }
+    }
+}
+
+@media only screen and (min-width: $break-point-normal) {
+    .textPartButton {
+        display: flex;
+        justify-content: center;
+        margin-top: 60px;
+    }
+
+    .securityCard {
+        padding: 28px 28px 36px 28px;
+    }
+}
+
+@media only screen and (min-width: $break-point-full-style) {
+    .textPartButton {
+        margin-top: 80px;
+    }
+
+    .securityCard {
+        padding: 32px 32px 40px 32px;
+    }   
+}

@@ -85,6 +85,11 @@ button {
     &:disabled {
         opacity: 0.5;
     }
+
+    &.s-button--full {
+        min-width: 10px;
+        width: 100%;
+    }
 }
 
 .menu-section-button {

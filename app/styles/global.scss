@@ -703,7 +703,7 @@ button:disabled {
 	justify-content: center;
 	padding-left: 10px;
 	padding-right: 10px;
-	border: 1px solid #ffffff;
+	border: 1px solid $color-black;
 	border-radius: 20px;
 	font-family: $font-bion;
 	font-weight: 300;
@@ -711,19 +711,10 @@ button:disabled {
 	line-height: 120%;
 	letter-spacing: -4%;
 	text-transform: uppercase;	
-
-	&.text-label--black {
-		border-color: $color-black;
-		color: $color-black;
-	}
+	color: $color-black;
 }
 
-.section-label {
-	> div {
-		display: flex;
-		justify-content: center;
-	}
-
+.text-label-decoration {
 	&:after {
 		content: '';
 		display: block;
@@ -732,6 +723,30 @@ button:disabled {
 		height: 50px;
 		background: url('/svg/tag-bottom-dash.svg') no-repeat center top;
 	}
+}
+
+.section-label {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	&.section-label--white {
+		.text-label-decoration {
+			&:after {
+				background: url('/svg/tag-bottom-dash-white.svg') no-repeat center top;
+			}
+		}
+
+		.text-label {
+			border-color: $color-white;
+			color: $color-white;
+		}
+	}
+
+	&.section-label--left {
+		align-items: flex-start;	
+	}
+
 }
 
 .section-v-gap-80-112 {
