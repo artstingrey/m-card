@@ -87,7 +87,6 @@ button {
     }
 
     &.s-button--full {
-        min-width: 10px;
         width: 100%;
     }
 }
@@ -131,6 +130,7 @@ button {
     justify-content: center;
     border-radius: 8px;
     background: $color-white;
+    flex-shrink: 0;
 
     svg {
         display: block;

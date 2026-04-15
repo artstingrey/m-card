@@ -91,7 +91,7 @@ export default function Banners () {
         }
     ];
     return (
-        <section className={clsx("section-v-gap-0-64",styles.banners)}>
+        <section className={clsx("section-v-gap-0-64","m-container",styles.banners)}>
             {bannersList.map((option, index) => {
                 return <Banner key={'banner-' + index} title={option.title} text={option.text} color={option.color} textColor={option?.textColor} image={option.image} imagePos={option.imagePos} wordType={option.wordType} wordColor={option.wordColor}/>
             })}

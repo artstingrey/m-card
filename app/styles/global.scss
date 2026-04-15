@@ -712,6 +712,11 @@ button:disabled {
 	letter-spacing: -4%;
 	text-transform: uppercase;	
 	color: $color-black;
+
+	&.text-label--white {
+		color: $color-white;
+		border-color: $color-white;
+	}
 }
 
 .text-label-decoration {

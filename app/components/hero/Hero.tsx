@@ -11,7 +11,7 @@ export default function Hero() {
                 <div className={styles.heroTextPart}>
                     <div className={styles.heroTextPartWrapper}>
                         <div className={styles.heroPayments}>
-                            <span className="text-label">работает с</span>
+                            <span className="text-label text-label--white">работает с</span>
                             <div className={styles.heroStores}>
                                 <div className={clsx("svg", styles.heroApple)}>
                                     <svg width="70" height="27" viewBox="0 0 70 27" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -47,7 +47,7 @@ export default function Hero() {
                 </div>
                 <div className={styles.heroFieldPart}>
                     <div className="s-button-launch-wrapper">
-                        <a href="#" className="s-button">Запустить MCard</a>
+                        <a href="#" className={clsx("s-button", "s-button--full", styles.heroButton)}>Запустить MCard</a>
                         <button className="qr-button">
                             <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <mask id="mask0_263_49" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="35" height="35">

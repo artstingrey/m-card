@@ -2,6 +2,7 @@
 
 .footer {
     padding: 8px;
+    background: $color-black;
 }
 
 .footerWrapper {
@@ -10,8 +11,77 @@
     background: $color-black90;
 }
 
+.footerHeader {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 32px;
+    position: relative;
+
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 1px;
+        background: url('/svg/footer-divider.svg') no-repeat center center;
+    }
+}
+
+.footerMiddle {
+    padding-top: 32px;
+}
+
+.footerTitle {
+    h2 {
+        font-size: 32px;
+        color: $color-white;
+        margin-bottom: 12px;
+    }
+}
+
+.footerMenuWrapper {
+    padding-top: 32px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+}
+
+.footerMenuColumn {
+    p {
+        margin: 0;
+        font-family: $font-bion;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 120%;
+        letter-spacing: -4%;
+        text-transform: uppercase;
+    }   
+
+    nav {
+        margin-top: 12px;
+
+        li {
+            margin-top: 4px;
+            &:first-child {
+                margin: 0;
+            }
+        }
+
+        a {
+            color: $color-white;
+            text-decoration: none;
+        }
+    }
+}
+
 @media only screen and (min-width: $break-point-tablet) {
-  
+    .footerMiddle {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
 }
 
 @media only screen and (min-width: $break-point-small) {
@@ -22,6 +92,42 @@
     .footerWrapper {
         border-radius: 30px;
         padding: 28px;
+    }
+
+    .footerHeader {
+        padding-bottom: 40px;
+    }
+
+    .footerMiddle {
+        padding-top: 36px;
+    }
+
+    .footerTitle {
+        flex-shrink: 0;
+
+        h2 {
+            font-size: 32px;
+            margin-bottom: 24px;
+        }
+    }
+
+    .footerMenuWrapper {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        padding-right: 40px;
+    }
+
+    .footerMenuColumn {
+        width: 33.33%;
+
+        p {
+            font-size: 16px;
+        }
+
+        nav {
+            margin-top: 16px;
+        }
     }
 }
 
@@ -37,6 +143,28 @@
     .footerWrapper {
         padding: 32px;
     }
+
+    .footerMiddle {
+        padding-top: 40px;
+    }
+
+    .footerMenuWrapper {
+        padding-right: 60px;
+    }
+
+    .footerMenuColumn {
+        p {
+            font-size: 18px;
+        }
+
+        nav {
+            margin-top: 18px;
+
+            li {
+                margin-top: 8px;
+            }
+        }
+    }
 }
 
 @media only screen and (min-width: $break-point-full-style) {
@@ -46,5 +174,19 @@
 
     .footerWrapper {
         padding: 40px;
+    }
+
+    .footerMenuWrapper {
+        padding-right: 80px;
+    }
+
+    .footerMenuColumn {
+        p {
+            font-size: 20px;
+        }
+
+        nav {
+            margin-top: 20px;
+        }
     }
 }

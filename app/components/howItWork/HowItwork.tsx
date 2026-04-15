@@ -1,16 +1,13 @@
 import clsx from 'clsx';
 import styles from './HowItWork.module.scss';
 import Image from "next/image";
+import SectionLabel from '../sectionLabel/SectionLabel';
 
 export default function HowItWork () {
     return (
         <section className={clsx("section-v-gap-40-112",styles.howItWork)}>
             <div className="m-container">
-                <div className="section-label">
-                    <div>
-                        <span className="text-label text-label--black">Как это работает</span>
-                    </div>
-                </div>
+                <SectionLabel text='Как это работает' />
                 <h2 className="t-center">готово за 60 <br></br>секунд</h2>
                 <div className={styles.cards}>
                     <div className={clsx(styles.card, styles.active)}>
@@ -61,7 +58,7 @@ export default function HowItWork () {
                                 <p><span>Мгновенно, без бумаг и ожидания</span></p>
                             </div>
                         </div>
-                        <div className={styles.cardImagePart}></div>
+                        <div className={styles.cardImagePart}><Image src="/images/how-it-work-card2.jpg"  alt="How it work card" quality={100} loading="lazy" width="1016" height="1004"/></div>
                     </div>
                     <div className={styles.card}>
                         <p className={clsx(styles.number)}>03</p>
@@ -83,7 +80,9 @@ export default function HowItWork () {
                                 <p><span>Рубли или крипто — решать вам</span></p>
                             </div>
                         </div>
-                        <div className={styles.cardImagePart}></div>
+                        <div className={styles.cardImagePart}>
+                            <Image src="/images/how-it-work-card3.jpg"  alt="How it work card" quality={100} loading="lazy" width="1016" height="1004"/>
+                        </div>
                     </div>
                     <div className={styles.card}>
                         <p className={clsx(styles.number)}>04</p>
@@ -105,7 +104,9 @@ export default function HowItWork () {
                                 <p><span>Добавьте карту в Apple Pay или Google Pay и оплачивайте касанием — онлайн, офлайн или в приложениях</span></p>
                             </div>
                         </div>
-                        <div className={styles.cardImagePart}></div>
+                        <div className={styles.cardImagePart}>
+                            <Image src="/images/how-it-work-card4.jpg"  alt="How it work card" quality={100} loading="lazy" width="1016" height="1004"/>
+                        </div>
                     </div>
                 </div>
             </div>

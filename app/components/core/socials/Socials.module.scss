@@ -7,8 +7,8 @@
 
 	a {
 		display: block;
-		width: 48px;
-		height: 48px;
+		width: 44px;
+		height: 44px;
         
         .hoverRect, .hoverPath {
             transition: fill 0.3s;
@@ -31,8 +31,19 @@
         column-gap: 16px;
 
         a {
-            width: 56px;
-            height: 56px;
+            width: 50px;
+            height: 50px;
+        }
+    }   
+}
+
+@media only screen and (min-width: $break-point-full-style) {
+    .socials {
+        column-gap: 20px;
+
+        a {
+            width: 60px;
+            height: 60px;
         }
     }   
 }
