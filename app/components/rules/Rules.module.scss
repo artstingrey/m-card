@@ -1,0 +1,252 @@
+@use '@/app/styles/core/variables' as *;
+
+.rules {
+    background: $color-bg-black;
+    padding-top: 60px;
+    padding-bottom: 80px;
+}
+
+.loader {
+    font-family: $font-bion;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 90%;
+    letter-spacing: -6%;
+    text-transform: uppercase;
+    color: $color-white;
+    height: 90px;
+    display: flex;
+    align-items: center;
+
+    > p {
+        margin: 0;
+    }
+}
+
+.words {
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+
+    &:after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            #111 10%,
+            transparent 30%,
+            transparent 70%,
+            #111 90%
+        );
+        z-index: 20;
+    }
+}
+
+.word {
+  display: block;
+  height: 100%;
+  color: $color-white;
+  animation: spin_4991 4s infinite;
+}
+
+@keyframes spin_4991 {
+  10% {
+    transform: translateY(-102%);
+  }
+
+  25% {
+    transform: translateY(-100%);
+  }
+
+  35% {
+    transform: translateY(-202%);
+  }
+
+  50% {
+    transform: translateY(-200%);
+  }
+
+  60% {
+    transform: translateY(-302%);
+  }
+
+  75% {
+    transform: translateY(-300%);
+  }
+
+  85% {
+    transform: translateY(-402%);
+  }
+
+  100% {
+    transform: translateY(-400%);
+  }
+    // 10% {
+    //     transform: translateY(0);
+    // }
+
+    // 100% {
+    //     transform: translateY(-100%);
+    // }
+}
+
+.textPart {
+    margin-top: 40px;
+    padding-top: 40px;
+    position: relative;
+
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: url('/svg/divider-horizontal.svg') no-repeat center center;
+    }
+
+    h2 {
+        margin: 0;
+        text-align: center;
+        color: $color-white;
+    }
+
+    p {
+        margin: 24px 0 0 0;
+        text-align: center;
+    }
+}
+
+.rulesButton {
+    margin-top: 24px;
+}
+
+@media only screen and (min-width: $break-point-tablet) {
+    .rulesWrapper {
+        display: flex;
+        justify-content: space-between;
+        column-gap: 24px;
+    }
+
+    .loaderWrapper {
+        display: flex;
+        align-items: center;
+    }
+
+    
+    .textPart {
+        margin-top: 0;
+        padding-top: 28px;
+        padding-bottom: 28px;
+        padding-left: 20px;
+        padding-right: 20px;
+
+        &:after {
+            width: 1px;
+            height: 100%;
+            background: url('/svg/divider-vertical.svg') no-repeat center center;
+        }
+
+        h2 {
+            text-align: left;
+        }
+
+        p {
+            text-align: left;
+        }
+    }
+
+}
+
+@media only screen and (min-width: $break-point-small) {
+    .rules {
+        padding-top: 80px;
+    }   
+
+    .loaderWrapper {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .loader {
+        font-size: 60px;
+        height: 120px;
+    }
+
+    .textPart {
+        p {
+            margin-top: 28px;
+        } 
+    }
+
+    .rulesButton {
+        margin-top: 28px;
+    }
+}
+
+@media only screen and (min-width: $break-point-normal) {
+    .rules {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+    
+    .loaderWrapper {
+        padding-left: 40px;
+        padding-right: 40px;
+        max-width: 600px;
+    }
+
+    .loader {
+        font-size: 80px;
+        height: 150px;
+    }
+
+    .textPart {
+        padding-left: 40px;
+        padding-right: 40px;
+        max-width: 600px;
+
+        p {
+            margin-top: 32px;
+        } 
+    }
+
+    .rulesButton {
+        margin-top: 32px;
+    }
+}
+
+@media only screen and (min-width: $break-point-full-style) {
+    .rules {
+        padding-top: 112px;
+        padding-bottom: 112px;
+    } 
+    
+    .loaderWrapper {
+        padding-left: 66.5px;
+        padding-right: 66.5px;
+        max-width: 800px;
+    }
+
+    .textPart {
+        max-width: 800px;
+        padding-left: 95px;
+        padding-right: 95px;
+    }
+
+    .loader {
+        font-size: 100px;
+        height: 192px;
+    }
+
+    .textPart {
+        p {
+            margin-top: 40px;
+        } 
+    }
+
+    .rulesButton {
+        margin-top: 40px;
+    }
+}
