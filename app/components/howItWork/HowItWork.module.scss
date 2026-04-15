@@ -18,6 +18,10 @@
     h3 {
         margin: 24px 0 0 0;
         color: $color-blue;
+
+        br {
+            display: none;
+        }
     }
 
     p {
@@ -71,6 +75,16 @@
     color: $color-blue;
 }
 
+@keyframes activeCard {
+    0% {
+      width: calc(25% - 9px); 
+    }
+
+    100% {
+        width: 46%;
+    }
+}
+
 @media only screen and (min-width: $break-point-tablet) {
     .cards {
         margin-left: 0;
@@ -109,7 +123,6 @@
         width: calc(25% - 9px);
         flex-direction: columns;
         column-gap: 10px;
-        transition: width 0.5s;
     }
 
     .cardTextPart {
@@ -126,16 +139,16 @@
 
         h3 {
             margin-top: 30px;
+            font-size: 36px;
+            br {
+                display: block;
+            }
         }
 
         p {
             max-height: 0;
+            opacity: 0;
             overflow: hidden;
-            transition: height 0.5s;
-
-            span {
-                padding-top: 30px;
-            }
         }
 
         .number {
@@ -149,20 +162,37 @@
         padding: 20px 20px 20px 28px;   
         column-gap: 20px;
         flex-direction: row;
+        max-width: 862px;
+        height: 400px;
+        width: 17%;
+        transition: width 0.5s 0.2s ease;
 
         &.active {
-            width: 46%;
-            max-width: 862px;
+            // animation: activeCard 1s ease forwards;
+            //animation-delay: 5s;
+            // width: 46%;
             flex-shrink: 0;
-            
+            width: 46%;
+
             p {
                 max-height: 200px;
+                opacity: 1;
+                transition: max-height 0.3s 0.7s, opacity 0.3s 0.7s;
+            }
+
+            .cardImagePart {
+                width: 58%;
+                opacity: 1;
+            }
+
+            .cardTextPart {
+                width: 38%;
             }
         }
     }
 
     .cardTextPart {
-        padding-right: 20px;
+        padding-right: 0;
         padding-top: 80px;
     }
 
@@ -172,9 +202,14 @@
     }
 
     .cardImagePart {
-        width: 100%;
+        width: 0;
         margin: 0;
         border-radius: 40px;
+        flex-shrink: 0;
+        overflow: hidden;
+        // transition: width 1s 0.2s;
+        opacity: 0;
+        transition: opacity 0.3s 0.7s linear;
     }
 
     .number {
@@ -186,10 +221,21 @@
 }
 
 @media only screen and (min-width: $break-point-full-style) {
+    .cards {
+        h3 {
+            font-size: 52px;
+        }
+
+        p {
+            padding-top: 30px;
+        }
+    }
+
     .card {
         border-radius: 56px;
         padding: 24px 24px 24px 36px;
         column-gap: 40px;
+        height: 550px;
     }
 
     .cardTextPart {

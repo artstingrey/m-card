@@ -1,16 +1,37 @@
+'use client';
+import { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import styles from './HowItWork.module.scss';
 import Image from "next/image";
 import SectionLabel from '../sectionLabel/SectionLabel';
 
+const HOVER_BREAKPOINT = 1400;
+
 export default function HowItWork () {
+    const [activeCard, setActiveCard] = useState(0);
+    const [isHoverEnabled, setIsHoverEnabled] = useState(false);
+
+    useEffect(() => {
+        const checkWidth = () => {
+            setIsHoverEnabled(window.innerWidth > HOVER_BREAKPOINT);
+        };
+
+        checkWidth();
+        window.addEventListener('resize', checkWidth);
+
+        return () => window.removeEventListener('resize', checkWidth);
+    }, []);
+
     return (
         <section className={clsx("section-v-gap-40-112",styles.howItWork)}>
             <div className="m-container">
                 <SectionLabel text='Как это работает' />
                 <h2 className="t-center">готово за 60 <br></br>секунд</h2>
                 <div className={styles.cards}>
-                    <div className={clsx(styles.card, styles.active)}>
+                    <div 
+                        className={clsx(styles.card, { [styles.active]: activeCard === 0 })}
+                        onMouseEnter={() => isHoverEnabled && setActiveCard(0)}
+                    >
                         <p className={clsx(styles.number)}>01</p>
                         <div className={styles.cardTextPart}>
                             <div>
@@ -27,7 +48,7 @@ export default function HowItWork () {
                                         </defs>
                                     </svg>
                                 </div>
-                                <h3>Откройте Telegram</h3>
+                                <h3>Откройте<br></br> Telegram</h3>
                                 <p><span>Запустите бота — и всё готово</span></p>
                             </div>
                         </div>
@@ -35,7 +56,10 @@ export default function HowItWork () {
                             <Image src="/images/how-it-work-card1.jpg"  alt="How it work card" quality={100} loading="lazy" width="1016" height="1004"/>
                         </div>
                     </div>
-                    <div className={styles.card}>
+                    <div 
+                        className={clsx(styles.card, { [styles.active]: activeCard === 1 })}
+                        onMouseEnter={() => isHoverEnabled && setActiveCard(1)}
+                    >
                         <p className={clsx(styles.number)}>02</p>
                         <div className={styles.cardTextPart}>
                             <div>
@@ -54,13 +78,16 @@ export default function HowItWork () {
                                         </defs>
                                     </svg>
                                 </div>
-                                <h3>Получите карту</h3>
+                                <h3>Получите<br></br> карту</h3>
                                 <p><span>Мгновенно, без бумаг и ожидания</span></p>
                             </div>
                         </div>
                         <div className={styles.cardImagePart}><Image src="/images/how-it-work-card2.jpg"  alt="How it work card" quality={100} loading="lazy" width="1016" height="1004"/></div>
                     </div>
-                    <div className={styles.card}>
+                    <div 
+                        className={clsx(styles.card, { [styles.active]: activeCard === 2 })}
+                        onMouseEnter={() => isHoverEnabled && setActiveCard(2)}
+                    >
                         <p className={clsx(styles.number)}>03</p>
                         <div className={styles.cardTextPart}>
                             <div>
@@ -76,7 +103,7 @@ export default function HowItWork () {
                                         </defs>
                                     </svg>
                                 </div>
-                                <h3>Пополните баланс</h3>
+                                <h3>Пополните<br></br> баланс</h3>
                                 <p><span>Рубли или крипто — решать вам</span></p>
                             </div>
                         </div>
@@ -84,7 +111,10 @@ export default function HowItWork () {
                             <Image src="/images/how-it-work-card3.jpg"  alt="How it work card" quality={100} loading="lazy" width="1016" height="1004"/>
                         </div>
                     </div>
-                    <div className={styles.card}>
+                    <div 
+                        className={clsx(styles.card, { [styles.active]: activeCard === 3 })}
+                        onMouseEnter={() => isHoverEnabled && setActiveCard(3)}
+                    >
                         <p className={clsx(styles.number)}>04</p>
                         <div className={styles.cardTextPart}>
                             <div>
@@ -100,7 +130,7 @@ export default function HowItWork () {
                                         </defs>
                                     </svg>
                                 </div>
-                                <h3>Платите где угодно</h3>
+                                <h3>Платите<br></br> где угодно</h3>
                                 <p><span>Добавьте карту в Apple Pay или Google Pay и оплачивайте касанием — онлайн, офлайн или в приложениях</span></p>
                             </div>
                         </div>
