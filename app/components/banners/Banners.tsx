@@ -1,8 +1,13 @@
+'use client';
+
 import clsx from 'clsx';
 import styles from './Banners.module.scss';
 import Banner from './banner/Banner';
+import { useEffect, useRef, useState } from 'react';
 
 export default function Banners () {
+    const bannerRef = useRef<HTMLDivElement>(null);
+
     const bannersList = [
         {
             title: 'Пополняйте криптой',
@@ -90,10 +95,79 @@ export default function Banners () {
             wordColor: '#1E1E1E'
         }
     ];
+
+    const [progressList, setProgressList] = useState<number[]>(
+        () => Array.from({ length: bannersList.length }, () => 0)
+    );
+
+    useEffect(() => {
+        const banner = bannerRef.current;
+
+        if (!banner) {
+            return;
+        }
+
+        let rafId = 0;
+
+        const updateProgress = () => {
+            rafId = 0;
+            const styles = window.getComputedStyle(banner);
+            const rect = banner.getBoundingClientRect();
+            const top = Math.abs(rect.top);
+            const padding = parseInt(styles.paddingTop) || 0;
+            const sectionHeight = (rect.height - padding) / bannersList.length;
+
+            const nextProgress = bannersList.map((_, index) => {
+
+                if(index == bannersList.length - 1) {
+                    return 0;
+                }
+
+                const rawProgress = (top / sectionHeight) - index;
+
+                if (rawProgress <= 0) {
+                    return 0;
+                }
+
+                if (rawProgress >= 1) {
+                    return 1;
+                }
+                
+                return Number(rawProgress.toFixed(3));
+            });
+
+            setProgressList((prevProgress) => {
+                const hasChanges = prevProgress.some((value, index) => value !== nextProgress[index]);
+                return hasChanges ? nextProgress : prevProgress;
+            });
+        };
+
+        const handleScroll = () => {
+            if (rafId) {
+                return;
+            }
+
+            rafId = window.requestAnimationFrame(updateProgress);
+        };
+
+        updateProgress();
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        window.addEventListener('resize', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('resize', handleScroll);
+
+            if (rafId) {
+                window.cancelAnimationFrame(rafId);
+            }
+        };
+    }, []);
+
     return (
-        <section className={clsx("section-v-gap-0-64","m-container",styles.banners)}>
+        <section ref={bannerRef} className={clsx("section-v-gap-0-64","m-container",styles.banners)}>
             {bannersList.map((option, index) => {
-                return <Banner key={'banner-' + index} title={option.title} text={option.text} color={option.color} textColor={option?.textColor} image={option.image} imagePos={option.imagePos} wordType={option.wordType} wordColor={option.wordColor}/>
+                return <Banner key={'banner-' + index} progress={progressList[index]} index={index} title={option.title} text={option.text} color={option.color} textColor={option?.textColor} image={option.image} imagePos={option.imagePos} wordType={option.wordType} wordColor={option.wordColor}/>
             })}
         </section>
     );

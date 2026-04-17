@@ -6,6 +6,16 @@
     margin-left: -$main-padding-m;
     margin-right: -$main-padding-m;
     overflow: hidden;
+    position: sticky;
+    top: 0;
+    --banner-progress: 0;
+    --banner-rotate-end: -10;
+    //transform-origin: center top;
+    // transform: translate3d(0, calc(var(--banner-progress)), 0)
+    //     rotate(calc(var(--banner-progress) * var(--banner-rotate-end) * 1deg))
+    //     scale(calc(1 - (var(--banner-progress) * 0.4)));
+    // transform: rotate(calc(var(--banner-progress) * var(--banner-rotate-end) * 1deg)) scale(1 - var(--banner-progress));
+    will-change: transform;
 
     h2 {
         margin: 0;
