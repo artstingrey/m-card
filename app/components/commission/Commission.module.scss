@@ -63,6 +63,12 @@
     margin-top: 26px;
 }
 
+.commissionItemCard {
+    position: relative;
+    padding: 0; 
+    box-shadow: -3px 5px 10px -4px rgba(0,0,0, 0.5);
+}
+
 @media only screen and (min-width: $break-point-tablet) {
     .commissionsContainer {
         max-width: 100%;
@@ -92,7 +98,12 @@
                 display: block;
             }
         }
+    }
 
+    .commissionItemCard {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
     }
 }
 
@@ -110,23 +121,30 @@
         }
     }
 
+    .commissionItemCard {
+        padding: 0;
+    }
+
     .commissionItemText {
         display: flex;
         justify-content: space-between;
+        align-items: center;
+        min-height: 93px;
 
         p {
             margin: 0;
             &:first-child {
-                width: 63%;
+                width: 60%;
             }
         }
     }
 
     .commissionPrice {
-        font-size: 60px;
+        font-size: 50px;
+        width: 38%;
         
         span {
-            font-size: 36px;
+            font-size: 28px;
         }
     }
 }

@@ -44,10 +44,15 @@
     height: 44px;
 }
 
+.bottomField {
+    margin-top: 32px;
+}
+
 @media only screen and (min-width: 500px) {
     .securityCards {
         flex-direction: row;
         flex-wrap: wrap;
+        justify-content: center;
         column-gap: 20px;
     }
 
@@ -63,6 +68,7 @@
 
     .textPartButton {
         display: flex;
+        justify-content: center;
         margin-top: 40px;
     }
 }
@@ -76,11 +82,35 @@
     }
 
     .securityCards {
-        flex-wrap: nowrap;
+        flex-direction: column;
+        position: relative;
+        z-index: 10;
     }
 
     .securityCard {
-        width: calc(25% - 5px);
+        width: calc(25%);
+        margin-top: 60px;
+
+        &:first-child {
+            align-self: flex-end;
+        }
+
+        &:nth-child(3) {
+            align-self: flex-end;
+        }
+
+        &:nth-child(5) {
+            align-self: flex-end;
+        }
+    }
+
+    .textPart {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding-top: 80px;
+        padding-bottom: 80px;
     }
 }
 
@@ -102,6 +132,7 @@
 
     .securityCard {
         padding: 28px 28px 36px 28px;
+        margin-top: 80px;
     }
 }
 
@@ -112,5 +143,6 @@
 
     .securityCard {
         padding: 32px 32px 40px 32px;
+        margin-top: 100px;
     }   
 }

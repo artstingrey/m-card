@@ -35,7 +35,7 @@ export default function Commission () {
                     <h3>Комиссия<br></br> за транзакцию</h3>
                     <div className={styles.commissionItemText}>
                         <p>Небольшая плата за каждый платёж</p>
-                        <p className={styles.commissionPrice}>$0.25 <span>+.4%</span></p>
+                        <p className={styles.commissionPrice}>$0.25 <span>+0.4%</span></p>
                     </div>
                 </div>
                 <div className={clsx(styles.commissionItem, styles.commissionItemCard)}>

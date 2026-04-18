@@ -89,6 +89,15 @@ button {
     &.s-button--full {
         width: 100%;
     }
+
+    &.s-button--white {
+        background: $color-white;
+        color: $color-black;
+
+        &:after {
+            background: url('/svg/button-arrow-black.svg') no-repeat center center;
+        }
+    }
 }
 
 .menu-section-button {
@@ -131,6 +140,7 @@ button {
     border-radius: 8px;
     background: $color-white;
     flex-shrink: 0;
+    border: 1px solid $color-black;
 
     svg {
         display: block;
@@ -146,6 +156,11 @@ button {
             width: 23px;
             height: 23px;
         }
+    }
+
+    &.qr-button--white {
+        border-color: $color-white;
+        background: $color-black;
     }
 }
 

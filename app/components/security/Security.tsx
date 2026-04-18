@@ -10,7 +10,7 @@ export default function Security () {
                 <div className={styles.textPart}>
                     <SectionLabel text="ВСЁ ПОД КОНТРОЛЕМ" color='white'/>
                     <h2 className='t-center'>Безопасность это наша забота, траты — ваша</h2>
-                    <LaunchButton text="Связаться с поддержкой" styles={styles.textPartButton}/>
+                    <LaunchButton text="Связаться с поддержкой" color='white' styles={styles.textPartButton}/>
                 </div>
                 <div className={styles.securityCards}>
                     <div className={styles.securityCard}>
@@ -143,7 +143,7 @@ export default function Security () {
                     </div>
 
                 </div>
-                <LaunchButton text="Связаться с поддержкой" styles={styles.bottomField}/>    
+                <LaunchButton text="Связаться с поддержкой" typeButton="full" color="white" styles={styles.bottomField}/>    
             </div>
         </section>
     );
