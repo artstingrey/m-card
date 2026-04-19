@@ -3,8 +3,9 @@ import styles from './Banner.module.scss';
 import Image from "next/image";
 import { BaseImage } from '@/app/config/types';
 import { GetHelp, OwnIt, Spend, TopUp } from '../wordsSVG';
-import LaunchButton from '../../core/launchButton/launchButton';
+
 import type { CSSProperties } from 'react';
+import LaunchButton from '../../core/launchButton/LaunchButton';
 
 type BannerType = {
     index: number;

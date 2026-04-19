@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import styles from './Security.module.scss';
 import SectionLabel from '../sectionLabel/SectionLabel';
-import LaunchButton from '../core/launchButton/launchButton';
+import LaunchButton from '../core/launchButton/LaunchButton';
 
 export default function Security () {
     return (
