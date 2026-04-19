@@ -1,13 +1,88 @@
+'use client';
+
 import clsx from 'clsx';
+import { useEffect, useRef, useState } from 'react';
 import styles from './Security.module.scss';
 import SectionLabel from '../sectionLabel/SectionLabel';
 import LaunchButton from '../core/launchButton/LaunchButton';
 
+const DESKTOP_SECURITY_WIDTH = 1080;
+
 export default function Security () {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const textPartRef = useRef<HTMLDivElement>(null);
+    const [textPartState, setTextPartState] = useState<'default' | 'fixed' | 'bottom'>('default');
+
+    useEffect(() => {
+        const container = containerRef.current;
+        const textPart = textPartRef.current;
+
+        if (!container || !textPart) {
+            return;
+        }
+
+        let rafId = 0;
+
+        const updateTextPartState = () => {
+            rafId = 0;
+
+            if (window.innerWidth < DESKTOP_SECURITY_WIDTH) {
+                setTextPartState('default');
+                return;
+            }
+
+            const containerTop = window.scrollY + container.getBoundingClientRect().top;
+            const containerHeight = container.offsetHeight;
+            const textPartHeight = textPart.offsetHeight;
+            const scrollTop = window.scrollY;
+            const stickyEnd = containerTop + containerHeight - textPartHeight;
+
+            if (scrollTop < containerTop) {
+                setTextPartState('default');
+                return;
+            }
+
+            if (scrollTop >= stickyEnd) {
+                setTextPartState('bottom');
+                return;
+            }
+
+            setTextPartState('fixed');
+        };
+
+        const handleViewportChange = () => {
+            if (rafId) {
+                return;
+            }
+
+            rafId = window.requestAnimationFrame(updateTextPartState);
+        };
+
+        updateTextPartState();
+
+        window.addEventListener('scroll', handleViewportChange, { passive: true });
+        window.addEventListener('resize', handleViewportChange);
+
+        return () => {
+            window.removeEventListener('scroll', handleViewportChange);
+            window.removeEventListener('resize', handleViewportChange);
+
+            if (rafId) {
+                window.cancelAnimationFrame(rafId);
+            }
+        };
+    }, []);
+
     return (
         <section className={styles.security}>
-            <div className={clsx("m-container","section-v-gap-80")}>
-                <div className={styles.textPart}>
+            <div ref={containerRef} className={clsx("m-container","section-v-gap-80")}>
+                <div
+                    ref={textPartRef}
+                    className={clsx(
+                        textPartState === 'fixed' && styles.textPart,
+                        textPartState === 'bottom' && styles.textPartBottom
+                    )}
+                >
                     <SectionLabel text="ВСЁ ПОД КОНТРОЛЕМ" color='white'/>
                     <h2 className='t-center'>Безопасность это наша забота, траты — ваша</h2>
                     <LaunchButton text="Связаться с поддержкой" color='white' styles={styles.textPartButton}/>
