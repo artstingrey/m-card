@@ -61,6 +61,15 @@ export default function Footer() {
                             </nav>
                         </div>
                     </div>
+                </div>
+                <div className={styles.footerFooter}>
+                    <nav className={styles.terms}>
+                        <ul>
+                            <li><Link href="#">Terms of Service</Link></li>
+                            <li><Link href="#">Privacy Policy</Link></li>
+                        </ul>
+                    </nav>
+                    <p className={styles.copy}>© {year} MCards. All rights reserved.</p>
                 </div>    
             </div>    
         </footer>

@@ -1,9 +1,121 @@
 @use '@/app/styles/core/variables' as *;
 
+.fixedSection {
+    min-height: 1080px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-left: $main-padding-m;
+    padding-right: $main-padding-m;
+    z-index: 10;
+}
+
+.fixedSectionWrapper {
+   display: flex;
+   flex-direction: column;
+   align-items: center; 
+   position: relative;
+   z-index: 2;
+
+   h2 {
+    color: $color-white;
+    margin: 0;
+    text-align: center;
+    font-size: 62px;
+    line-height: 90%;
+    letter-spacing: -6%;
+
+    br {
+        display: none;
+    }
+   }
+
+   p {
+    margin: 40px 0 40px 0;
+    max-width: 294px;
+    text-align: center;
+   }
+}
+
+
+.swiper {
+    margin-top: 90px;
+    padding-bottom: 80px;
+}
+
+.swiperCellItem {
+    width: 233px;
+    height: 233px !important;
+    padding: 24px;
+    border-radius: 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: $color-black90;
+
+    &:nth-child(odd) {
+        background-color: #F4EFE8;
+    }
+
+    p {
+        margin: 0;
+        font-family: $font-bion;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 100%;
+        letter-spacing: -5%;
+        text-transform: uppercase;
+        color: $color-blue;
+    }
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+        display: block;
+    }
+}
+
+@media only screen and (min-width: $break-point-tablet) {
+    .fixedSection {
+        min-height: 700px;
+    }  
+}
+
 @media only screen and (min-width: $break-point-small) {
-    
+    .fixedSectionWrapper {
+        padding-bottom: 80px;
+        h2 {
+            br {
+                display: block;
+            }
+        }
+    } 
+
+    .swiper {
+        display: none;
+    }
 }
 
 @media only screen and (min-width: $break-point-normal) {
-    
+    .fixedSection {
+        height: 800px;
+    }
+}
+
+@media only screen and (min-width: $break-point-full-style) {
+    .fixedSection {
+        height: 1080px;
+    }
+
+    .fixedSectionWrapper {
+        padding-bottom: 204px;
+    }
 }

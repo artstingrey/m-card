@@ -1,4 +1,5 @@
 import Banners from "./components/banners/Banners";
+import Capabilities from "./components/capabilities/Capabilities";
 import Commission from "./components/commission/Commission";
 import Footer from "./components/core/footer/Footer";
 import Hero from "./components/hero/Hero";
@@ -17,6 +18,7 @@ export default function Home() {
         <RunningLine />
         <HowItWork />
         <Banners />
+        <Capabilities />
         <Commission />
         <Security />
         <Information />
