@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import styles from './Information.module.scss';
 import SectionLabel from '../sectionLabel/SectionLabel';
 import FAQ from '../FAQ/FAQ';
-import LaunchButton from '../core/launchButton/launchButton';
+import LaunchButton from '../core/launchButton/LaunchButton';
 
 export default function Information () {
 

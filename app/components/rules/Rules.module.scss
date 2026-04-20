@@ -14,9 +14,10 @@
     letter-spacing: -6%;
     text-transform: uppercase;
     color: $color-white;
-    height: 90px;
+    height: 100px;
     display: flex;
     align-items: center;
+    justify-content: center;
 
     > p {
         margin: 0;
@@ -27,26 +28,76 @@
     overflow: hidden;
     position: relative;
     height: 100%;
+    margin-left: 8px;
 
     &:after {
         content: "";
         position: absolute;
         inset: 0;
         background: linear-gradient(
-            #111 10%,
+            #000 10%,
             transparent 30%,
             transparent 70%,
-            #111 90%
+            #000 90%
         );
         z-index: 20;
     }
 }
 
+.wordsWrapper {
+    transform: translateY(-20px);
+    display: flex;
+    flex-direction: column;
+    row-gap: 2px;
+    animation: spin 8s infinite;
+}
+
 .word {
-  display: block;
-  height: 100%;
-  color: $color-white;
-  animation: spin_4991 4s infinite;
+    display: block;
+    color: $color-white;
+    align-items: center;
+    // transform: translateY(-66%);
+    height: 46px;
+    // animation: spin_4991 10s infinite;
+}
+
+.divider {
+    margin-top: 40px;
+    div {
+        height: 1px;
+        background: url('/svg/divider-horizontal.svg') repeat center center;
+    }
+    
+}
+
+@keyframes spin {
+    0% {
+        transform: translateY(-20px);
+    }
+
+    17% {
+        transform: translateY(-70px);
+    }
+
+    34% {
+        transform: translateY(-68px);
+    }
+
+    52% {
+        transform: translateY(-118px);
+    }
+
+    67% {
+        transform: translateY(-116px);
+    }
+
+    86% {
+        transform: translateY(-164px);
+    }
+
+    100% {
+        transform: translateY(-162px);
+    }
 }
 
 @keyframes spin_4991 {
@@ -54,32 +105,40 @@
     transform: translateY(-102%);
   }
 
-  25% {
+  20% {
     transform: translateY(-100%);
   }
 
-  35% {
+  30% {
     transform: translateY(-202%);
   }
 
-  50% {
+  40% {
     transform: translateY(-200%);
   }
 
-  60% {
+  50% {
     transform: translateY(-302%);
   }
 
-  75% {
+  60% {
     transform: translateY(-300%);
   }
 
-  85% {
+  70% {
     transform: translateY(-402%);
   }
 
-  100% {
+  80% {
     transform: translateY(-400%);
+  }
+
+  90% {
+    transform: translateY(-502%);
+  }
+
+  100% {
+    transform: translateY(-500%);
   }
     // 10% {
     //     transform: translateY(0);
@@ -91,25 +150,14 @@
 }
 
 .textPart {
-    margin-top: 40px;
     padding-top: 40px;
     position: relative;
-
-    &:after {
-        content: '';
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 1px;
-        background: url('/svg/divider-horizontal.svg') no-repeat center center;
-    }
 
     h2 {
         margin: 0;
         text-align: center;
         color: $color-white;
+        font-size: 32px;
     }
 
     p {
@@ -132,21 +180,18 @@
     .loaderWrapper {
         display: flex;
         align-items: center;
+        width: 50%;
     }
 
     
     .textPart {
+        width: 50%;
         margin-top: 0;
         padding-top: 28px;
         padding-bottom: 28px;
         padding-left: 20px;
         padding-right: 20px;
-
-        &:after {
-            width: 1px;
-            height: 100%;
-            background: url('/svg/divider-vertical.svg') no-repeat center center;
-        }
+        position: relative;
 
         h2 {
             text-align: left;
@@ -157,6 +202,15 @@
         }
     }
 
+    .divider {
+        width: 1px;
+        flex-shrink: 0;
+
+        div {
+            height: 100%;
+            background: url('/svg/divider-vertical.svg') repeat-y center center;
+        }
+    }
 }
 
 @media only screen and (min-width: $break-point-small) {
@@ -171,17 +225,59 @@
 
     .loader {
         font-size: 60px;
-        height: 120px;
+        height: 140px;
     }
 
     .textPart {
         p {
             margin-top: 28px;
         } 
+
+        h2 {
+            font-size: 40px;
+        }
     }
 
     .rulesButton {
         margin-top: 28px;
+    }
+
+    .wordsWrapper {
+        transform: translateY(-19px);
+    }
+
+    .word {
+        height: 60px;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: translateY(-19px);
+        }
+
+        17% {
+            transform: translateY(-83px);
+        }
+
+        34% {
+            transform: translateY(-81px);
+        }
+
+        52% {
+            transform: translateY(-143px);
+        }
+
+        67% {
+            transform: translateY(-141px);
+        }
+
+        86% {
+            transform: translateY(-204px);
+        }
+
+        100% {
+            transform: translateY(-202px);
+        }
     }
 }
 
@@ -199,7 +295,7 @@
 
     .loader {
         font-size: 80px;
-        height: 150px;
+        height: 160px;
     }
 
     .textPart {
@@ -210,10 +306,56 @@
         p {
             margin-top: 32px;
         } 
+
+        h2 {
+            font-size: 44px;
+        }
     }
 
     .rulesButton {
         margin-top: 32px;
+    }
+
+    .words {
+        margin-left: 12px;
+    }
+
+    .word {
+        height: 74px;
+    }
+
+    .wordsWrapper {
+        transform: translateY(-32px);
+    }
+
+    @keyframes spin {
+        0% {
+            transform: translateY(-32px);
+        }
+
+        17% {
+            transform: translateY(-109px);
+        }
+
+        34% {
+            transform: translateY(-107px);
+        }
+
+        52% {
+            transform: translateY(-186px);
+        }
+
+        67% {
+            transform: translateY(-184px);
+        }
+
+        86% {
+            transform: translateY(-262px);
+        }
+
+        100% {
+            transform: translateY(-260px);
+        }
     }
 }
 
@@ -233,6 +375,10 @@
         max-width: 800px;
         padding-left: 95px;
         padding-right: 95px;
+
+        h2 {
+            font-size: 52px;
+        }
     }
 
     .loader {

@@ -6,7 +6,7 @@ import { FooterLogo } from "../Logo";
 import { secondMenu } from "@/app/config/menu.footer";
 import styles from "./Footer.module.scss";
 import Socials from "../socials/Socials";
-import LaunchButton from "../launchButton/launchButton";
+import LaunchButton from "../launchButton/LaunchButton";
 
 
 

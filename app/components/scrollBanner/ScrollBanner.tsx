@@ -1,12 +1,64 @@
-import clsx from 'clsx';
+'use client';
+
+import { useEffect, useRef, useState } from 'react';
 import styles from './ScrollBanner.module.scss';
-import LaunchButton from '../core/launchButton/launchButton';
+import LaunchButton from '../core/launchButton/LaunchButton';
 import SectionLabel from '../sectionLabel/SectionLabel';
 
 export default function ScrollBanner () {
+    const sectionRef = useRef<HTMLElement>(null);
+    const [scale, setScale] = useState(1);
+
+    useEffect(() => {
+        const section = sectionRef.current;
+
+        if (!section) {
+            return;
+        }
+
+        let rafId = 0;
+
+        const updateScale = () => {
+            rafId = 0;
+
+            const rect = section.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
+            const scrollProgress = Math.abs(Math.min(rect.top, 0)) / (viewportHeight / 2);
+            const clampedProgress = Math.min(Math.max(scrollProgress, 0), 1);
+            const nextScale = 1 - clampedProgress * 0.1;
+
+            setScale((prev) => {
+                const rounded = Number(nextScale.toFixed(4));
+                return prev === rounded ? prev : rounded;
+            });
+        };
+
+        const handleViewportChange = () => {
+            if (rafId) {
+                return;
+            }
+
+            rafId = window.requestAnimationFrame(updateScale);
+        };
+
+        updateScale();
+
+        window.addEventListener('scroll', handleViewportChange, { passive: true });
+        window.addEventListener('resize', handleViewportChange);
+
+        return () => {
+            window.removeEventListener('scroll', handleViewportChange);
+            window.removeEventListener('resize', handleViewportChange);
+
+            if (rafId) {
+                window.cancelAnimationFrame(rafId);
+            }
+        };
+    }, []);
+
     return (
-        <section className={styles.scrollBanner}>
-            <div>
+        <section ref={sectionRef} className={styles.scrollBanner}>
+            <div style={{ transform: `scale(${scale})` }}>
                 <picture className="responsive-image">
                     <source srcSet="/images/bannerMob.avif 2x" media="(max-width: 767px)" type="image/avif" />
                     <source srcSet="/images/bannerMob.webp 2x" media="(max-width: 767px)" type="image/webp" />
