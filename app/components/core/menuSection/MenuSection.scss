@@ -4,7 +4,6 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: -1;
     width: 100%;
     height: 100vh;
     padding: 8px;
@@ -13,8 +12,10 @@
     background: rgba(255, 255, 255, 0.02);
     backdrop-filter: blur(20px);
     transition: opacity 0.3s;
+    pointer-events: none;
 
     &.active {
+        pointer-events: auto;
         opacity: 1;
         z-index: 110;
     }

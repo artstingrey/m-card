@@ -2,12 +2,13 @@ import clsx from "clsx";
 
 type QrButtonProps = {
     isSmall?: boolean;
+    clickEvent?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-export default function QrButton ({isSmall = false}:QrButtonProps) {
+export default function QrButton ({isSmall = false, clickEvent}:QrButtonProps) {
 
     return (
-        <button className={clsx("qr-button",isSmall ? "qr-button--small" : "")}>
+        <button className={clsx("qr-button",isSmall ? "qr-button--small" : "")} onClick={clickEvent}>
             <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <mask id="mask0_263_49" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="35" height="35">
                 <rect width="35" height="35" fill="#D9D9D9"/>

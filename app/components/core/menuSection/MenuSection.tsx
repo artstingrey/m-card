@@ -6,20 +6,19 @@ import { mainMenu } from "@/app/config/menu.main";
 
 type MenuSectionProps = {
  isActive: boolean;
- onLinkClick?: () => void;
  closeMenu?: () => void;
 };
 
-export default function MenuSection({isActive, onLinkClick, closeMenu}:MenuSectionProps) {
+export default function MenuSection({isActive, closeMenu}:MenuSectionProps) {
     
     return (
-        <div className={`mobile-menu-section ${isActive ? ACTIVE_CLASS : ''}`}>
+        <div className={`mobile-menu-section ${isActive ? ACTIVE_CLASS : ''}`} onClick={closeMenu}>
             <div className="mobile-menu-section-wrapper">
                 <div className="mobile-menu__header">
                     <Link className="mobile-menu__logo svg" href="/">
                         <LogoBlack />
                     </Link>    
-                    <button className="mobile-menu__close">
+                    <button className="mobile-menu__close" onClick={closeMenu}>
                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <mask id="mask0_213_3371" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="32" height="32">
                             <rect width="32" height="32" fill="#D9D9D9"/>
