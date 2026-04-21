@@ -121,6 +121,12 @@
     .fixedSection {
         height: 800px;
     }
+
+    .fixedSectionWrapper {
+        h2 {
+            font-size: 80px;
+        }
+    }
 }
 
 @media only screen and (min-width: $break-point-full-style) {
@@ -130,5 +136,9 @@
 
     .fixedSectionWrapper {
         padding-bottom: 204px;
+
+        h2 {
+            font-size: 100px;
+        }
     }
 }

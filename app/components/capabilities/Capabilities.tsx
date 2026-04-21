@@ -18,13 +18,13 @@ export default function Capabilities () {
                 <source srcSet="/images/capability-mob.webp 2x" media="(max-width: 767px)" type="image/webp" />
                 <source srcSet="/images/capability-mob.jpg 2x" media="(max-width: 767px)" type="image/jpeg" />
 
-                <source srcSet="/images/capability-tablet.avif 2x" media="(min-width: 768px)" type="image/avif" />
-                <source srcSet="/images/capability-tablet.webp 2x" media="(min-width: 768px)" type="image/webp" />
-                <source srcSet="/images/capability-tablet.jpg 2x" media="(min-width: 768px)" type="image/jpeg" />
-
                 <source srcSet="/images/capability.avif 1x, /images/capability@2x.avif 2x" media="(min-width: 1080px)" type="image/avif" />
                 <source srcSet="/images/capability.webp 1x, /images/capability@2x.webp 2x" media="(min-width: 1080px)" type="image/webp" />
                 <source srcSet="/images/capability.jpg 1x, /images/capability@2x.jpg 2x" media="(min-width: 1080px)" type="image/jpeg" />
+
+                <source srcSet="/images/capability-tablet.avif 2x" media="(min-width: 768px) and (max-width: 1079px)" type="image/avif" />
+                <source srcSet="/images/capability-tablet.webp 2x" media="(min-width: 768px) and (max-width: 1079px)" type="image/webp" />
+                <source srcSet="/images/capability-tablet.jpg 2x" media="(min-width: 768px) and (max-width: 1079px)" type="image/jpeg" />
 
                 <img src="/images/capability-mob.jpg" width="750" height="2160" alt="Section background" decoding="async" loading="lazy"/>
             </picture>
