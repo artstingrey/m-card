@@ -2,25 +2,29 @@
 
 import 'swiper/css';
 import 'swiper/css/pagination';
-import 'swiper/css/free-mode';
-
 import styles from './Capabilities.module.scss';
+
+import clsx from 'clsx';
 import LaunchButton from '../core/launchButton/LaunchButton';
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Pagination } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 
 
 export default function Capabilities () {
     return (
         <section className={styles.fixedSection}>
-             <picture className="section-bg responsive-image">
+             <picture className="responsive-image">
                 <source srcSet="/images/capability-mob.avif 2x" media="(max-width: 767px)" type="image/avif" />
                 <source srcSet="/images/capability-mob.webp 2x" media="(max-width: 767px)" type="image/webp" />
                 <source srcSet="/images/capability-mob.jpg 2x" media="(max-width: 767px)" type="image/jpeg" />
 
-                <source srcSet="/images/capability.avif 1x, /images/capability@2x.avif 2x" media="(min-width: 768px)" type="image/avif" />
-                <source srcSet="/images/capability.webp 1x, /images/capability@2x.webp 2x" media="(min-width: 768px)" type="image/webp" />
-                <source srcSet="/images/capability.jpg 1x, /images/capability@2x.jpg 2x" media="(min-width: 768px)" type="image/jpeg" />
+                <source srcSet="/images/capability-tablet.avif 2x" media="(min-width: 768px)" type="image/avif" />
+                <source srcSet="/images/capability-tablet.webp 2x" media="(min-width: 768px)" type="image/webp" />
+                <source srcSet="/images/capability-tablet.jpg 2x" media="(min-width: 768px)" type="image/jpeg" />
+
+                <source srcSet="/images/capability.avif 1x, /images/capability@2x.avif 2x" media="(min-width: 1080px)" type="image/avif" />
+                <source srcSet="/images/capability.webp 1x, /images/capability@2x.webp 2x" media="(min-width: 1080px)" type="image/webp" />
+                <source srcSet="/images/capability.jpg 1x, /images/capability@2x.jpg 2x" media="(min-width: 1080px)" type="image/jpeg" />
 
                 <img src="/images/capability-mob.jpg" width="750" height="2160" alt="Section background" decoding="async" loading="lazy"/>
             </picture>
@@ -30,7 +34,16 @@ export default function Capabilities () {
                 <LaunchButton text='Связаться с командой' color='white'/>   
             </div>
 
-            <Swiper modules={[Pagination, FreeMode]} spaceBetween={20} freeMode={true} slidesPerView="auto" className={styles.swiper} pagination={{ clickable: true}} breakpoints={{1080: {enabled: false,allowTouchMove: false,pagination: { enabled: false }}}}>
+            <Swiper
+                modules={[Pagination, Autoplay]}
+                spaceBetween={20}
+                slidesPerView="auto"
+                loop={true}
+                autoplay={{ delay: 3000, disableOnInteraction: false }}
+                className={styles.swiper}
+                pagination={{ clickable: true, type: "bullets" }}
+                breakpoints={{1080: {enabled: false,allowTouchMove: false,pagination: { enabled: false }}}}
+            >
                 <SwiperSlide className={styles.swiperCellItem}>
                     <div className={styles.icon}>
                         <svg width="60" height="52" viewBox="0 0 60 52" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -48,7 +61,7 @@ export default function Capabilities () {
                     </div>
                     <p>Путешествую и плачу за рубежом</p>     
                 </SwiperSlide>
-                <SwiperSlide className={styles.swiperCellItem}>
+                <SwiperSlide className={clsx(styles.swiperCellItem,styles.swiperCellItemWhite)}>
                     <div className={styles.icon}>
                         <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clipPath="url(#clip0_225_9377)">
@@ -88,7 +101,7 @@ export default function Capabilities () {
                     </div>
                     <p>Нужна карта для фриланса</p>     
                 </SwiperSlide>
-                <SwiperSlide className={styles.swiperCellItem}>
+                <SwiperSlide className={clsx(styles.swiperCellItem,styles.swiperCellItemWhite)}>
                     <div className={styles.icon}>
                         <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clipPath="url(#clip0_225_9344)">

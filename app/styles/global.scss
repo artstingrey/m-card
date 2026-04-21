@@ -572,14 +572,18 @@ button:disabled {
 }
 
 .swiper-pagination {
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	width: 100%;   
+	position: static !important;
+	margin-top: 24px;
+	margin-left: auto;
+	margin-right: auto;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	column-gap: 9px;
+	column-gap: 8px;
+	width: 110px !important;
+	height: 40px;
+	background: $color-black90;
+	border-radius: 40px;
 
 	.swiper-pagination-bullet {
 		display: block;
@@ -587,15 +591,23 @@ button:disabled {
 		height: 8px;
 		margin: 0 !important;
 		border-radius: 100%;
-		background: #E0E0E0;
+		background: #898683;
 		opacity: 1;
 	}
 
 	.swiper-pagination-bullet-active {
-		background: #000000;
-		width: 11px;
-		height: 11px;
-		border: 3px solid #EB5107;
+		width: 38px;
+		border-radius: 20px;
+		overflow: hidden;
+
+		&:before {
+			content: '';
+			display: block;
+			width: 0;
+			height: 100%;
+			background: $color-white;
+			animation: width 3s linear forwards;
+		}
 	}
 }
 
@@ -606,6 +618,16 @@ button:disabled {
 .fade-out {
 	animation: fadeOut 0.3s ease forwards;
   	animation-delay: 3s;
+}
+
+@keyframes width {
+	0% {
+		width: 0%;
+	}
+
+	100% {
+		width: 100%;
+	}
 }
 
 @keyframes move {
