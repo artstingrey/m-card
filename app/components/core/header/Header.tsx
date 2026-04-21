@@ -5,9 +5,10 @@ import QrButton from "../qrButton/QrButton";
 import { mainMenu } from "@/app/config/menu.main";
 import MenuSection from "../menuSection/MenuSection";
 import { Logo } from "../Logo";
+import clsx from "clsx";
 
 type HeaderProps = {
-  color?: string;
+  color?: "black" | "white" | "";
 };
 
 export default function Header({ color = '' }: HeaderProps) {
@@ -24,7 +25,7 @@ export default function Header({ color = '' }: HeaderProps) {
   return (
     <>
     <MenuSection isActive={false} />
-      <header className="header">
+      <header className={clsx("header", color == "black" ? "header--black" : "", color == "white" ? "header--white" : "")}>
           <div className="m-container">
               <div className="header__left_part">
                 <Link href="/" className="logo svg">

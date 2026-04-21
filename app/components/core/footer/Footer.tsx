@@ -65,7 +65,7 @@ export default function Footer() {
                 <div className={styles.footerFooter}>
                     <nav className={styles.terms}>
                         <ul>
-                            <li><Link href="#">Terms of Service</Link></li>
+                            <li><Link href="/terms-of-use">Terms of Use</Link></li>
                             <li><Link href="#">Privacy Policy</Link></li>
                         </ul>
                     </nav>
