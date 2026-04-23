@@ -59,9 +59,15 @@ $animation-scroll-time: 0.3s;
     }
 
     &.header--black {
-        .header-main {
+        .header-wrapper {
             background: rgba(0, 0, 0, 0.1);
         }  
+    }
+
+    &.header--white-transparent {
+        .header-wrapper {
+            background-color: rgba(255,255,255, 0.2);
+        }
     }
 
     &.header--normal {
