@@ -1,12 +1,12 @@
 'use client';
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import type { AnimationEvent as ReactAnimationEvent } from "react";
 import QrButton from "../qrButton/QrButton";
 import { mainMenu } from "@/app/config/menu.main";
 import MenuSection from "../menuSection/MenuSection";
 import { Logo } from "../Logo";
 import clsx from "clsx";
-import { styleText } from "util";
 
 type HeaderProps = {
   color?: "black" | "white" | "";
@@ -14,41 +14,73 @@ type HeaderProps = {
 
 export default function Header({ color = '' }: HeaderProps) {
   const [isActive, seActive] = useState(false);
-  const [headerColorClass, setActiveColor] = useState<string>(color);
-  const scrolled = false;
-  
+  const [headerState, setHeaderState] = useState<"normal" | "change" | "scroll" | "">("");
+
   const openMenu = () => {
     seActive(true);
-  }
+  };
 
   const closeMenu = () => {
     seActive(false);
   };
 
-  let tempHeaderColorClass = "";
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolledBeyondThreshold = window.scrollY > 100;
 
-  if(color == "black") {
-    tempHeaderColorClass = 'header--black';
-  }
+      setHeaderState((previousState) => {
+        if (!isScrolledBeyondThreshold) {
+          return "normal";
+        }
 
-  if(scrolled) {
-    tempHeaderColorClass = 'header--change';
-  }
+        if (previousState === "scroll") {
+          return "scroll";
+        }
 
-  // useEffect(() => {
-  //   if(color == 'black') {
-  //     setActiveColor('header--black');
-  //   }
+        return "change";
+      });
+    };
 
-  //   if (scrolled) {
-  //     setActiveColor('header--scrolled');
-  //   }
-  // }, [color,scrolled]);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleHeaderAnimationEnd = (event: ReactAnimationEvent<HTMLElement>) => {
+    if (headerState !== "change") {
+      return;
+    }
+
+    if (event.animationName !== "headerChangeButton") {
+      return;
+    }
+
+    setHeaderState((previousState) => {
+      if (previousState !== "change") {
+        return previousState;
+      }
+
+      return window.scrollY > 100 ? "scroll" : "normal";
+    });
+  };
 
   return (
     <>
       <MenuSection isActive={isActive} closeMenu={closeMenu}/>
-      <header className={clsx("header header--normal", tempHeaderColorClass)}>
+      <header
+        onAnimationEnd={handleHeaderAnimationEnd}
+        className={clsx(
+          "header",
+          color === "black" && "header--black",
+          color === "white" && "header--white",
+          headerState === "normal" && "header--normal",
+          headerState === "change" && "header--change",
+          headerState === "scroll" && "header--scroll"
+        )}
+      >
           <div className="header-wrapper">
             <div className="header-main">
                 <div className="header__left_part">

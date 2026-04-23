@@ -1,5 +1,13 @@
 @use '@/app/styles/core/variables' as *;
 
+$animation-normal-time: 0.5s;
+$animation-normal-delay: 0.3s;
+
+$animation-change-time: 0.3s;
+$animation-change-delay: 0.1s;
+
+$animation-scroll-time: 0.3s;
+
 .header {
     position: fixed;
     top: 0;
@@ -10,7 +18,7 @@
     padding: 8px;
 
     .header__right_part {
-        .qr-button {
+        .qr-button, .s-button {
             transform: translateY(-100%);
             opacity: 0;    
         }
@@ -19,10 +27,20 @@
     .logo {
         opacity: 0;
         transform: scale(0.8);
+        transition: transform $animation-normal-time ease-in opacity $animation-normal-time ease-in;
+    }
+
+    .hover-path {
+        transition: fill $animation-normal-time ease-in;
     }
 
     .main-menu {
         opacity: 0;
+        transition: opacity $animation-normal-time ease-in;
+
+        a {
+            transition: none;
+        }
     }
 
     &.header--white {
@@ -49,55 +67,78 @@
     &.header--normal {
         .header__right_part {
             .s-button {
-                animation: headerShowButton 0.5s ease-in forwards;    
+                animation: headerShowButton $animation-normal-time ease-in forwards;    
             }
 
             .qr-button {
-                animation: headerShowButton 0.5s 0.2s ease-in forwards;
+                animation: headerShowButton $animation-normal-time $animation-normal-delay ease-in forwards;
             }
         }
 
         .logo {
-            animation: showLogo 0.5s ease-in forwards;
+            animation: showLogo $animation-normal-time ease-in forwards;
         }
 
         .main-menu {
-            animation: showMenu 0.5s ease-in forwards;
+            animation: showMenu $animation-normal-time ease-in forwards;
         }
     }
 
     &.header--change {
         .header__right_part {
             .s-button {
-                animation: headerChangeButton 0.5s ease-in forwards;     
+                transform: translateY(0);
+                opacity: 1;
+                animation: headerChangeButton $animation-change-time ease-in forwards;     
             }
 
             .qr-button {
-                animation: headerChangeButton 0.5s 0.2s ease-in forwards;
+                transform: translateY(0);
+                opacity: 1;
+                animation: headerChangeButton $animation-change-time $animation-change-delay ease-in forwards;
             }
+        }
+
+        .logo {
+            opacity: 1;
+            transform: scale(1);
+            animation: changeLogo $animation-change-time ease-in forwards;
+        }
+
+        .main-menu {
+            opacity: 1;
+            animation: changeMenu $animation-change-time ease-in forwards;
         }
     }
 
-    &.header--scrolled {
-        // .header-wrapper {
-        //     background: $color-white;
-        //     border-radius: 12px;
-        // }
+    &.header--scroll {
+        .header-wrapper {
+            background-color: $color-white;
+        }
 
-        // .hover-path {
-        //     fill: #000;
-        // }
+        .logo {
+            opacity: 0;
+            transform: scale(0.8);
+            animation: showLogo $animation-scroll-time ease-out forwards;
+        }
 
-        // .main-menu {
-        //     a {
-        //         color: $color-black;
-        //     }
-        // }
+        .hover-path {
+            fill: #000;
+        }
+
+        .main-menu {
+            opacity: 0;
+            animation: showMenu $animation-scroll-time ease-out forwards;
+            a {
+                color: $color-black;
+            }
+        }
 
         .header__right_part {
             .s-button, .qr-button {
                 transform: translateY(0);
-                opacity: 1;           
+                opacity: 0;
+                animation: headerShowScrollButton $animation-scroll-time ease-in forwards;           
             }
         }
     }
@@ -105,6 +146,9 @@
 
 .header-wrapper {
     padding: 8px 10px;
+    border-radius: 12px;
+    background-color: transparent;
+    transition: background-color $animation-normal-time ease-in;
 }
 
 .header-main {
@@ -174,6 +218,40 @@
     }
 }
 
+@keyframes changeLogo {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+}
+
+@keyframes changeMenu {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes headerShowScrollButton {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 @media only screen and (min-width: $break-point-small) {
     .header {
         height: 90px;
@@ -182,6 +260,7 @@
         padding-top: 14px;
         padding-bottom: 14px;
 
+        &.header--scroll,
         &.header--scrolled {
             .header-wrapper {
                 border-radius: 20px;
