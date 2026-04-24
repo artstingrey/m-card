@@ -95,7 +95,7 @@ const BANNERS_LIST = [
         imageMobPos: 0,
         imagePos: 'center' as const,
         wordType: 'getHelp' as const,
-        wordColor: '#1E1E1E'
+        wordColor: '#353535'
     }
 ];
 
