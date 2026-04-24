@@ -2,7 +2,6 @@ import { clsx } from 'clsx';
 import Image from "next/image";
 import styles from './Hero.module.scss';
 import Socials from '../core/socials/Socials';
-import LaunchButton from '../core/launchButton/LaunchButton';
 
 export default function Hero() {
     return (
@@ -64,7 +63,9 @@ export default function Hero() {
                                     <div className="qr-code">
                                         <img src="/svg/qr-code-hover.svg" alt="qr code" title="qr-code" width="132" height="132" loading="lazy" decoding="async"/>
                                     </div>
-                                    <Socials style={styles.heroSocials}/>
+                                    <div className="qr-code-social">
+                                        <Socials />
+                                    </div>
                                 </div>
                             </div>
                         </button>
