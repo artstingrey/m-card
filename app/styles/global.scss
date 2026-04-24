@@ -192,6 +192,10 @@ button:disabled {
 	height: 24px;
 }
 
+.hover-path {
+	transition: fill 0.3s;
+}
+
 .socials {
 	display: flex;
 	justify-content: center;
