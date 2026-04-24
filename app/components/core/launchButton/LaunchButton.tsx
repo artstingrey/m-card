@@ -4,7 +4,7 @@ type LaunchButtonType = {
     text: string;
     styles?: string;
     typeButton?: "full" | "";
-    color?: "white" | "black"
+    color?: "white" | "black" | "white-transparent"
 };
 
 export default function LaunchButton ({text, styles, typeButton = "", color = "black"}:LaunchButtonType) {

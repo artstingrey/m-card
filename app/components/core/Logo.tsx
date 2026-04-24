@@ -1,7 +1,7 @@
 function Logo() {
     return (
         <>
-            <svg width="170" height="40" viewBox="0 0 170 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className="logo-d" width="170" height="40" viewBox="0 0 170 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M49.1118 39.9999L49.1106 39.9992L37.2051 33.1297V7.53772L49.1118 0.667725V39.9999Z" fill="url(#paint0_linear_127_9489-2)"/>
                 <path d="M24.5586 27.9089V14.1689L49.1156 0V13.74L24.5597 27.9082L24.5586 27.9089Z" fill="url(#paint1_linear_127_9489-2)"/>
                 <path d="M-0.000457764 40L0.000681877 39.9994L11.9062 33.1299L11.9062 7.53785L-0.000457764 0.667854L-0.000457764 40Z" fill="url(#paint2_linear_127_9489-2)"/>

@@ -4,9 +4,10 @@ import styles from "./Socials.module.scss";
 
 type SocialsType = {
     style?: string;
+    color?: string;
 };
 
-export default function Socials({style = ""}:SocialsType) {
+export default function Socials({style = "", color = ''}:SocialsType) {
     return (
        <div className={clsx(styles.socials, style)}>
             <a href="#" className="svg" target="_blank" rel="noreferrer noopener">

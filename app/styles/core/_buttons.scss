@@ -162,6 +162,24 @@ button {
         border-color: $color-white;
         background: $color-black;
     }
+
+    &.qr-button--white-transparent {
+        border-color: $color-white;
+        background: transparent;
+        
+        .hover-path {
+            fill: $color-white;
+        }
+    }
+
+    &.qr-button--black-transparent {
+        border-color: $color-black;
+        background: transparent;
+        
+        .hover-path {
+            fill: $color-black;
+        }
+    }
 }
 
 @media only screen and (min-width: $break-point-small) {

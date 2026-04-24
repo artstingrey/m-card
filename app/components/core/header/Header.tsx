@@ -1,12 +1,14 @@
 'use client';
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { AnimationEvent as ReactAnimationEvent } from "react";
 import QrButton from "../qrButton/QrButton";
 import { mainMenu } from "@/app/config/menu.main";
 import MenuSection from "../menuSection/MenuSection";
 import { Logo } from "../Logo";
 import clsx from "clsx";
+import Socials from "../socials/Socials";
+import { ACTIVE_CLASS } from "@/app/utils/constants";
 
 type HeaderProps = {
   color?: "black" | "white" | "";
@@ -14,7 +16,10 @@ type HeaderProps = {
 
 export default function Header({ color = '' }: HeaderProps) {
   const [isActive, seActive] = useState(false);
-  const [headerState, setHeaderState] = useState<"normal" | "change" | "scroll" | "">("");
+  const [headerState, setHeaderState] = useState<"normal" | "change" | "scroll" | "">("normal");
+  const [sectionColorClass, setSectionColorClass] = useState("");
+  const [isHover, setIshover] = useState(false);
+  const headerRef = useRef<HTMLElement | null>(null);
 
   const openMenu = () => {
     seActive(true);
@@ -25,8 +30,35 @@ export default function Header({ color = '' }: HeaderProps) {
   };
 
   useEffect(() => {
+    const sections = document.querySelectorAll<HTMLElement>("[data-header-color-class]");
+
     const handleScroll = () => {
       const isScrolledBeyondThreshold = window.scrollY > 100;
+      const headerHeight = headerRef.current?.offsetHeight ?? 0;
+      
+      let nextSectionColorClass = "";
+
+      if(sections.length) {
+        for (const section of sections) {
+          const sectionColor = section.dataset.headerColorClass;
+
+          if (!sectionColor) {
+            continue;
+          }
+
+          const rect = section.getBoundingClientRect();
+          const isHeaderInsideSection = rect.top < headerHeight && rect.bottom > 0;
+
+          if (isHeaderInsideSection) {
+            nextSectionColorClass = sectionColor;
+            break;
+          }
+        }
+
+        setSectionColorClass((previousClass) => {
+          return previousClass === nextSectionColorClass ? previousClass : nextSectionColorClass;
+        });
+      }
 
       setHeaderState((previousState) => {
         if (!isScrolledBeyondThreshold) {
@@ -39,13 +71,16 @@ export default function Header({ color = '' }: HeaderProps) {
 
         return "change";
       });
+
     };
 
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
     };
   }, []);
 
@@ -69,13 +104,17 @@ export default function Header({ color = '' }: HeaderProps) {
 
   return (
     <>
+      <div className={clsx("header-overlay", isHover ? ACTIVE_CLASS : "")} onMouseEnter={()=> {setIshover(false);}}></div>
       <MenuSection isActive={isActive} closeMenu={closeMenu}/>
       <header
+        ref={headerRef}
         onAnimationEnd={handleHeaderAnimationEnd}
         className={clsx(
           "header",
+          isHover ? "header--hover" : "",
           color === "black" && "header--black",
           color === "white" && "header--white",
+          sectionColorClass,
           headerState === "normal" && "header--normal",
           headerState === "change" && "header--change",
           headerState === "scroll" && "header--scroll"
@@ -123,10 +162,21 @@ export default function Header({ color = '' }: HeaderProps) {
                 <div className="header__right_part"> 
                   <div className="s-button-launch-wrapper-reverse">
                     <Link href="#" className="s-button s-button--small">Запустить MCard</Link>
-                    <QrButton isSmall={true} clickEvent={openMenu}/>
+                    <QrButton isSmall={true} color="white-transparent" clickEvent={openMenu} mouseEnter={() => {setIshover(true);}} />
                   </div>
                 </div>
+            </div>
+            <div className="header-hover" onMouseLeave={() => {setIshover(false);}}>
+              <div className="header-hover__wrapper">
+                  <div className="header-qr-code">
+                    <img src="/svg/header-qr-code.svg" alt="Header qr code" width="150" height="150" loading="lazy" decoding="async" />
+                  </div>
+                  <div className="header-divider"></div>
+                  <div className="header-socials">
+                    <Socials />
+                  </div>
               </div>
+            </div>
           </div>
       </header>
     </>

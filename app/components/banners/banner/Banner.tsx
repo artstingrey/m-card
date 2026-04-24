@@ -41,7 +41,7 @@ export default function Banner ({index,progress = 0,title,text,color,textColor =
     };
 
     return (
-        <div className={styles.banner} style={bannerStyle}>
+        <div className={styles.banner} style={bannerStyle} data-header-color-class="header--white-transparent">
             <div className={styles.bannerHeading}>
                 <WordComponent color={wordColor} />
             </div>

@@ -245,7 +245,11 @@ export default function Banners () {
     }, [resetProgress]);
 
     return (
-        <section ref={sectionRef} className={clsx("section-v-gap-0-64","m-container",styles.banners)}>
+        <section
+            ref={sectionRef}
+            data-header-color-class="header--white-transparent"
+            className={clsx("section-v-gap-0-64","m-container",styles.banners)}
+        >
             {BANNERS_LIST.map((option, index) => {
                 return <Banner key={'banner-' + index} progress={progressList[index]} index={index} title={option.title} text={option.text} color={option.color} textColor={option?.textColor} image={option.image} imageMobPos={option.imageMobPos} imagePos={option.imagePos} wordType={option.wordType} wordColor={option.wordColor}/>
             })}
