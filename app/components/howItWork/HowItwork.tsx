@@ -53,7 +53,7 @@ export default function HowItWork () {
                             </div>
                         </div>
                         <div className={styles.cardImagePart}>
-                            <Image src="/images/how-it-work-card1.jpg"  alt="How it work card" quality={100} loading="lazy" width="1016" height="1004"/>
+                            <Image src="/images/how-it-work-card1.png"  alt="How it work card" quality={100} loading="lazy" width="1016" height="1004"/>
                         </div>
                     </div>
                     <div 
@@ -82,7 +82,7 @@ export default function HowItWork () {
                                 <p><span>Мгновенно, без бумаг и ожидания</span></p>
                             </div>
                         </div>
-                        <div className={styles.cardImagePart}><Image src="/images/how-it-work-card2.jpg"  alt="How it work card" quality={100} loading="lazy" width="1016" height="1004"/></div>
+                        <div className={styles.cardImagePart}><Image src="/images/how-it-work-card2.png"  alt="How it work card" quality={100} loading="lazy" width="1016" height="1004"/></div>
                     </div>
                     <div 
                         className={clsx(styles.card, { [styles.active]: activeCard === 2 })}
@@ -108,7 +108,7 @@ export default function HowItWork () {
                             </div>
                         </div>
                         <div className={styles.cardImagePart}>
-                            <Image src="/images/how-it-work-card3.jpg"  alt="How it work card" quality={100} loading="lazy" width="1016" height="1004"/>
+                            <Image src="/images/how-it-work-card3.png"  alt="How it work card" quality={100} loading="lazy" width="1016" height="1004"/>
                         </div>
                     </div>
                     <div 
@@ -135,7 +135,7 @@ export default function HowItWork () {
                             </div>
                         </div>
                         <div className={styles.cardImagePart}>
-                            <Image src="/images/how-it-work-card4.jpg"  alt="How it work card" quality={100} loading="lazy" width="1016" height="1004"/>
+                            <Image src="/images/how-it-work-card4.png"  alt="How it work card" quality={100} loading="lazy" width="1016" height="1004"/>
                         </div>
                     </div>
                 </div>

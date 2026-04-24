@@ -60,7 +60,6 @@
     min-height: 40px;
     border-radius: 30px;
     overflow: hidden;
-    background: #000000;
 }
 
 .number {
@@ -83,6 +82,16 @@
     100% {
         width: 46%;
     }
+}
+
+@keyframes cartImageShow {
+    0% {
+        width: 0;
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+
 }
 
 @media only screen and (min-width: $break-point-tablet) {
@@ -149,6 +158,7 @@
             max-height: 0;
             opacity: 0;
             overflow: hidden;
+            transition: max-height 0.5s ease, opacity 0.5s ease;
         }
 
         .number {
@@ -158,14 +168,14 @@
     }
 
     .card {
-        border-radius: 40px;
+        border-radius: 44px;
         padding: 20px 20px 20px 28px;   
         column-gap: 20px;
         flex-direction: row;
         max-width: 862px;
         height: 400px;
         width: 17%;
-        transition: width 0.5s 0.2s ease;
+        transition: width 0.8s 0.2s ease;
 
         &.active {
             // animation: activeCard 1s ease forwards;
@@ -177,12 +187,14 @@
             p {
                 max-height: 200px;
                 opacity: 1;
-                transition: max-height 0.3s 0.7s, opacity 0.3s 0.7s;
+                transition: max-height 0.8s 0.7s ease, opacity 0.8s 0.7s ease;
             }
 
             .cardImagePart {
-                width: 58%;
+                // width: 58%;
                 opacity: 1;
+                transform: scale(1);
+                transition: opacity 0.3s 0.7s linear, transform 0.3s 0.7s linear;
             }
 
             .cardTextPart {
@@ -194,6 +206,10 @@
     .cardTextPart {
         padding-right: 0;
         padding-top: 80px;
+        width: 38%;
+        transition: width 0.3s linear;
+        min-width: 234px;
+        flex-shrink: 0;
     }
 
     .icon {
@@ -202,14 +218,14 @@
     }
 
     .cardImagePart {
-        width: 0;
+        width: 58%;
         margin: 0;
         border-radius: 40px;
-        flex-shrink: 0;
         overflow: hidden;
         // transition: width 1s 0.2s;
         opacity: 0;
-        transition: opacity 0.3s 0.7s linear;
+        transform: scale(0.9);
+        transition: opacity 0.2s, transform 0.2s;
     }
 
     .number {
