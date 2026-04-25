@@ -1,5 +1,11 @@
 @use '@/app/styles/core/variables' as *;
 
+.commission {
+    h2 {
+        margin-top: 12px;
+    }
+}
+
 .commissionsContainer {
     margin-top: 40px;
     display: flex;
@@ -92,7 +98,8 @@
         justify-content: space-between;
 
         h3 {
-            min-height: 72px;
+            min-height: 56px;
+            font-size: 28px;
 
             br {
                 display: block;
@@ -104,6 +111,28 @@
         display: flex;
         align-items: center;
         flex-direction: row;
+    }
+
+    .commission {
+        h2 {
+            margin-top: 24px;
+        }
+    } 
+
+    .commissionItemText {
+        margin-top: 16px;
+
+        p {
+            font-size: 14px;
+        }
+
+        .commissionPrice {
+            font-size: 36px;
+            
+            span {
+                font-size: 28px;
+            }
+        }
     }
 }
 
@@ -119,6 +148,12 @@
         .commissionPrice {
             margin: 0;
         }
+
+        h3 {
+            font-size: 42px;
+            min-height: 72px;
+        }
+        
     }
 
     .commissionItemCard {
@@ -130,8 +165,10 @@
         justify-content: space-between;
         align-items: center;
         min-height: 93px;
+        margin-top: 26px;
 
         p {
+            font-size: 18px;
             margin: 0;
             &:first-child {
                 width: 60%;
@@ -142,7 +179,8 @@
     .commissionPrice {
         font-size: 50px;
         width: 38%;
-        
+
+
         span {
             font-size: 28px;
         }

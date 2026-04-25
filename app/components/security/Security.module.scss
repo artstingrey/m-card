@@ -85,11 +85,18 @@
         flex-direction: column;
         position: relative;
         z-index: 10;
+        pointer-events: none;
     }
+
+    // .securityCardsFixed {
+    //     margin-top: 370px;
+    // }
 
     .securityCard {
         width: calc(25%);
         margin-top: 60px;
+        opacity: 1;
+        transition: opacity 0.4s;
 
         &:first-child {
             align-self: flex-end;
@@ -101,6 +108,10 @@
 
         &:nth-child(5) {
             align-self: flex-end;
+        }
+
+        &.securityCard--hide {
+            opacity: 0;
         }
     }
 
@@ -120,6 +131,14 @@
     .textPartBottom {
         position: absolute;
         bottom: 0;
+    }
+
+    .textPartButton {
+        position: relative;
+        z-index: 20;
+        > a {
+            min-width: 360px;
+        }
     }
 }
 
@@ -142,6 +161,12 @@
     .securityCard {
         padding: 28px 28px 36px 28px;
         margin-top: 80px;
+    }
+
+    .textPartButton {
+        > a {
+            min-width: 390px;
+        }
     }
 }
 

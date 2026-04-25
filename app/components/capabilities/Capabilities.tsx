@@ -31,7 +31,7 @@ export default function Capabilities () {
             <div className={styles.fixedSectionWrapper}>
                 <h2>Подходит ли<br></br> это вам?</h2>
                 <p>Мы всё объясним и поможем найти лучшее решение</p>
-                <LaunchButton text='Связаться с командой' color='white'/>   
+                <LaunchButton text='Связаться с командой' color="white-m-black-d" styles={styles.capabilitiesButton}/>   
             </div>
 
             <Swiper

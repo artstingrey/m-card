@@ -5,7 +5,7 @@ import SectionLabel from '../sectionLabel/SectionLabel';
 
 export default function Commission () {
     return (
-        <section className={clsx("section-v-gap-80-112","m-container")}>
+        <section className={clsx("section-v-gap-80-112","m-container", styles.commission)}>
             <SectionLabel text="комиссии" color="black"/>
             <h2 className="t-center">Вы всегда знаете,<br></br> за что платите</h2>
             <div className={styles.commissionsContainer}>

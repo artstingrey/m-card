@@ -7,17 +7,22 @@ import SectionLabel from '../sectionLabel/SectionLabel';
 import LaunchButton from '../core/launchButton/LaunchButton';
 
 const DESKTOP_SECURITY_WIDTH = 1080;
+const DEFAULT_MARGIN = 32;
 
 export default function Security () {
+    
     const containerRef = useRef<HTMLDivElement>(null);
     const textPartRef = useRef<HTMLDivElement>(null);
+    const innerRef = useRef<HTMLDivElement>(null);
     const [textPartState, setTextPartState] = useState<'default' | 'fixed' | 'bottom'>('default');
+    const [marginState, setMarginState] = useState(DEFAULT_MARGIN);
 
     useEffect(() => {
         const container = containerRef.current;
         const textPart = textPartRef.current;
+        const inner = innerRef.current;
 
-        if (!container || !textPart) {
+        if (!container || !textPart || !inner) {
             return;
         }
 
@@ -39,15 +44,18 @@ export default function Security () {
 
             if (scrollTop < containerTop) {
                 setTextPartState('default');
+                setMarginState(DEFAULT_MARGIN);
                 return;
             }
 
             if (scrollTop >= stickyEnd) {
                 setTextPartState('bottom');
+                setMarginState(inner.offsetHeight + DEFAULT_MARGIN);
                 return;
             }
 
             setTextPartState('fixed');
+            setMarginState(inner.offsetHeight + DEFAULT_MARGIN);
         };
 
         const handleViewportChange = () => {
@@ -57,6 +65,7 @@ export default function Security () {
 
             rafId = window.requestAnimationFrame(updateTextPartState);
         };
+
 
         updateTextPartState();
 
@@ -83,11 +92,13 @@ export default function Security () {
                         textPartState === 'bottom' && styles.textPartBottom
                     )}
                 >
-                    <SectionLabel text="ВСЁ ПОД КОНТРОЛЕМ" color='white'/>
-                    <h2 className='t-center'>Безопасность это наша забота, траты — ваша</h2>
-                    <LaunchButton text="Связаться с поддержкой" color='white' styles={styles.textPartButton}/>
+                    <div ref={innerRef}>
+                        <SectionLabel text="ВСЁ ПОД КОНТРОЛЕМ" color='white'/>
+                        <h2 className='t-center'>Безопасность это наша забота, траты — ваша</h2>
+                        <LaunchButton text="Связаться с поддержкой" color='white' qrColor="white-transparent" styles={styles.textPartButton}/>
+                    </div>
                 </div>
-                <div className={styles.securityCards}>
+                <div className={styles.securityCards} style={{marginTop: marginState + "px"}}>
                     <div className={styles.securityCard}>
                         <div className={clsx("svg", styles.icon)}>
                             <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">

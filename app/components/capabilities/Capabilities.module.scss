@@ -96,6 +96,7 @@
     }
 }
 
+
 @media only screen and (min-width: $break-point-tablet) {
     .fixedSection {
         min-height: 750px;
@@ -125,6 +126,13 @@
     .fixedSectionWrapper {
         h2 {
             font-size: 80px;
+        }
+    }
+
+    .capabilitiesButton {
+        width: 434px;
+        a {
+            width: 100%;
         }
     }
 }
