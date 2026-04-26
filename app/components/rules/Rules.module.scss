@@ -169,6 +169,10 @@
 .rulesButton {
     margin-top: 24px;
     width: 100%;
+
+    a {
+        width: 100%;
+    }
 }
 
 @media only screen and (min-width: $break-point-tablet) {
@@ -212,6 +216,12 @@
             background: url('/svg/divider-vertical.svg') repeat-y center center;
         }
     }
+
+    .rulesButton {
+        a {
+            width: auto;
+        }
+}
 }
 
 @media only screen and (min-width: $break-point-small) {
