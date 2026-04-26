@@ -12,7 +12,7 @@ import { Autoplay, Pagination } from "swiper/modules";
 
 export default function Capabilities () {
     return (
-        <section className={styles.fixedSection}>
+        <section className={styles.fixedSection} id="card-works">
              <picture className="responsive-image">
                 <source srcSet="/images/capability-mob.avif 2x" media="(max-width: 767px)" type="image/avif" />
                 <source srcSet="/images/capability-mob.webp 2x" media="(max-width: 767px)" type="image/webp" />

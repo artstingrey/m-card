@@ -104,7 +104,7 @@ export default function Security () {
     }, []);
 
     return (
-        <section className={styles.security}>
+        <section className={styles.security} id="security">
             <div ref={containerRef} className={clsx("m-container-80","section-v-gap-80")}>
                 <div
                     ref={textPartRef}
