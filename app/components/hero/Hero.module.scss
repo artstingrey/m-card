@@ -3,7 +3,7 @@
 .hero {
     padding-top: 90px;
     position: relative;
-    height: 1000px;
+    height: 1176px;
 
     p {
         margin: 24px 0 0 0;
@@ -101,7 +101,7 @@
 
 @media only screen and (min-width: $break-point-tablet) {
     .hero {
-        height: 100vh;
+        height: 110vh;
     }
 
     .heroContainer {
@@ -152,6 +152,7 @@
 
     .hero {
         overflow: hidden;
+        max-height: 1462px;
     }
 
     .heroContainer {
