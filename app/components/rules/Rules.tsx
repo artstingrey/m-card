@@ -5,7 +5,7 @@ import LaunchButton from "../core/launchButton/LaunchButton";
 export default function Rules () {
     return (
         <section className={styles.rules}>
-            <div className={clsx("m-container", styles.rulesWrapper)}>
+            <div className={clsx("m-container-80", styles.rulesWrapper)}>
                 <div className={styles.loaderWrapper}>    
                     <div className={styles.loader}>
                         <p>БЕЗ</p>

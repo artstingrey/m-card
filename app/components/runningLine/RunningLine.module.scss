@@ -71,6 +71,11 @@
 }
 
 @media only screen and (min-width: $break-point-full-style) {
+    
+    .runningLineTitle {
+        font-size: 28px;
+    }
+
     .runningLineInitial {
         padding: 0;
         column-gap: 100px;

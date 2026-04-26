@@ -155,7 +155,7 @@ button:disabled {
 	margin-right: auto;
 }
 
-.m-container {
+.m-container, .m-container-80 {
 	padding-left: $main-padding-m;
 	padding-right: $main-padding-m;
 	margin-left: auto;
@@ -849,7 +849,7 @@ button:disabled {
 		display: flex;
 	}
 
-	.m-container, .screen-section__inner {
+	.m-container, .screen-section__inner, .m-container-80 {
 		padding-left: $main-padding-s;
 		padding-right: $main-padding-s;
 	}
@@ -978,12 +978,17 @@ button:disabled {
 }
 
 @media only screen and (min-width: $break-point-medium-large) {
-	.m-container {
+	.m-container, .m-container-80 {
 		max-width: 1920px;
 		padding-left: $main-padding-l;
 		padding-right: $main-padding-l;
 		margin-left: auto;
 		margin-right: auto;
+	}
+
+	.m-container-80 {
+		padding-left: $main-padding-l-80;
+		padding-right: $main-padding-l-80;
 	}
 }
 
