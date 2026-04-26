@@ -101,7 +101,8 @@
 
 @media only screen and (min-width: $break-point-tablet) {
     .hero {
-        height: 110vh;
+        height: 130vh;
+        max-height: 1176px;
     }
 
     .heroContainer {
@@ -152,6 +153,7 @@
 
     .hero {
         overflow: hidden;
+        height: 100vh;
         max-height: 1462px;
     }
 
@@ -207,6 +209,7 @@
 @media only screen and (min-width: $break-point-medium) {
     .hero {
         padding-top: 160px;
+        height: 140vh;
 
         p {
             font-size: 18px;
@@ -219,6 +222,10 @@
 }
 
 @media only screen and (min-width: $break-point-normal) {
+    .hero {
+        height: 160vh;
+    }
+    
     .heroMainTextDesc {
         width: 80%;
     }
