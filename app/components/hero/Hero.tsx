@@ -15,7 +15,7 @@ export default function Hero() {
                     media="(max-width: 768px)"
                 />
                 <source
-                    src="/video/hero_d2.mp4"
+                    src="/video/hero_d.mp4"
                     type="video/mp4"
                     media="(min-width: 769px)"
                 />
