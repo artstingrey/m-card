@@ -79,7 +79,6 @@
 }
 
 @media only screen and (min-width: $break-point-full-style) {
-    
     .runningLineTitle {
         font-size: 28px;
     }
@@ -93,5 +92,6 @@
     .runningLine {
         font-size: 28px;
         line-height: 120%;
+        margin-top: -180px;
     }
 }
