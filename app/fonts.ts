@@ -3,12 +3,12 @@ import localFont from "next/font/local";
 export const inter = localFont({
     src: [
         {
-            path: "./../public/fonts/inter/static/Inter_18pt-Medium.ttf",
+            path: "./../public/fonts/Inter/static/Inter_18pt-Medium.ttf",
             weight: "500",
             style: "normal"
         },
         {
-            path: "./../public/fonts/inter/static/Inter_18pt-SemiBold.ttf",
+            path: "./../public/fonts/Inter/static/Inter_18pt-SemiBold.ttf",
             weight: "600",
             style: "normal"
         }
