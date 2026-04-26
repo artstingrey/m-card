@@ -57,7 +57,7 @@ export default function ScrollBanner () {
     }, []);
 
     return (
-        <section ref={sectionRef} className={styles.scrollBanner}>
+        <section ref={sectionRef} className={styles.scrollBanner} data-header-color-class="header--black" id="partner-program">
             <div style={{ transform: `scale(${scale})` }}>
                 <picture className="responsive-image">
                     <source srcSet="/images/bannerMob.avif 2x" media="(max-width: 767px)" type="image/avif" />

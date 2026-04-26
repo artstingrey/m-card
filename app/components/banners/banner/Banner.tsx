@@ -52,7 +52,7 @@ export default function Banner ({index,progress = 0,title,text,color,textColor =
                 <div className={clsx(styles.textPart, textColor == 'white' ? styles.textPartWhite : '')}>
                     <h2>{title}</h2>
                     <p>{text}</p>
-                    <LaunchButton text='Запустить MCard' styles={styles.launch} />
+                    <LaunchButton text='Запустить MCard' labelPosition='top-left' styles={styles.launch} />
                 </div>
             </div>
         </div>

@@ -23,7 +23,7 @@ export default function HowItWork () {
     }, []);
 
     return (
-        <section className={clsx("section-v-gap-40-112",styles.howItWork)}>
+        <section className={clsx("section-v-gap-40-112",styles.howItWork)} id="how-it-work">
             <div className="m-container">
                 <SectionLabel text='Как это работает' />
                 <h2 className="t-center">готово за 60 <br></br>секунд</h2>

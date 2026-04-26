@@ -26,7 +26,7 @@ export default function Footer() {
                 <div className={styles.footerMiddle}>
                     <div className={styles.footerTitle}>
                         <h2>Трать так,  будто никто не<br></br> смотрит</h2>
-                        <LaunchButton text="Запустить MCard" />
+                        <LaunchButton text="Запустить MCard" labelPosition="top-left"/>
                     </div>
                     <div className={styles.footerMenuWrapper}>
                         <div className={styles.footerMenuColumn}>

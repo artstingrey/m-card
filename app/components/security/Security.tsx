@@ -16,6 +16,7 @@ export default function Security () {
     const innerRef = useRef<HTMLDivElement>(null);
     const [textPartState, setTextPartState] = useState<'default' | 'fixed' | 'bottom'>('default');
     const [marginState, setMarginState] = useState(DEFAULT_MARGIN);
+    const [hiddenCards, setHiddenCards] = useState<boolean[]>([]);
 
     useEffect(() => {
         const container = containerRef.current;
@@ -28,11 +29,28 @@ export default function Security () {
 
         let rafId = 0;
 
+        const resetHiddenCards = () => {
+            setHiddenCards((prevCards) => {
+                return prevCards.some(Boolean) ? prevCards.map(() => false) : prevCards;
+            });
+        };
+
+        const updateHiddenCards = () => {
+            const cards = container.querySelectorAll<HTMLElement>(`.${styles.securityCard}`);
+            const nextHiddenCards = Array.from(cards, (card) => card.getBoundingClientRect().top <= 0);
+
+            setHiddenCards((prevCards) => {
+                const hasChanges = prevCards.length !== nextHiddenCards.length || prevCards.some((value, index) => value !== nextHiddenCards[index]);
+                return hasChanges ? nextHiddenCards : prevCards;
+            });
+        };
+
         const updateTextPartState = () => {
             rafId = 0;
 
             if (window.innerWidth < DESKTOP_SECURITY_WIDTH) {
                 setTextPartState('default');
+                resetHiddenCards();
                 return;
             }
 
@@ -45,17 +63,20 @@ export default function Security () {
             if (scrollTop < containerTop) {
                 setTextPartState('default');
                 setMarginState(DEFAULT_MARGIN);
+                resetHiddenCards();
                 return;
             }
 
             if (scrollTop >= stickyEnd) {
                 setTextPartState('bottom');
                 setMarginState(inner.offsetHeight + DEFAULT_MARGIN);
+                updateHiddenCards();
                 return;
             }
 
             setTextPartState('fixed');
             setMarginState(inner.offsetHeight + DEFAULT_MARGIN);
+            updateHiddenCards();
         };
 
         const handleViewportChange = () => {
@@ -99,7 +120,7 @@ export default function Security () {
                     </div>
                 </div>
                 <div className={styles.securityCards} style={{marginTop: marginState + "px"}}>
-                    <div className={styles.securityCard}>
+                    <div className={clsx(styles.securityCard, hiddenCards[0] && styles["securityCard--hide"])}>
                         <div className={clsx("svg", styles.icon)}>
                             <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clipPath="url(#clip0_115_2714)">
@@ -122,7 +143,7 @@ export default function Security () {
                         <p>Транзакции защищены современным шифрованием, поэтому ваши средства в безопасности, пока вы занимаетесь своими делами.</p>
                     </div>
 
-                    <div className={styles.securityCard}>
+                    <div className={clsx(styles.securityCard, hiddenCards[1] && styles["securityCard--hide"])}>
                         <div className={clsx("svg", styles.icon)}>
                             <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clipPath="url(#clip0_115_2721)">
@@ -146,7 +167,7 @@ export default function Security () {
                         <p>Каждый платёж, который вы совершаете — вы узнаете о нём сразу</p>
                     </div>
 
-                    <div className={styles.securityCard}>
+                    <div className={clsx(styles.securityCard, hiddenCards[2] && styles["securityCard--hide"])}>
                         <div className={clsx("svg", styles.icon)}>
                             <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clipPath="url(#clip0_115_2729)">
@@ -182,7 +203,7 @@ export default function Security () {
                         <p>Потеряли карту или заметили что-то необычное? Мгновенно приостановите её в Telegram</p>
                     </div>
 
-                    <div className={styles.securityCard}>
+                    <div className={clsx(styles.securityCard, hiddenCards[3] && styles["securityCard--hide"])}>
                         <div className={clsx("svg", styles.icon)}>
                             <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clipPath="url(#clip0_115_2749)">
@@ -206,7 +227,7 @@ export default function Security () {
                         <p>Пополняйте счёт, тратьте деньги или оставляйте их нетронутыми — всё в ваших руках</p>
                     </div>
 
-                    <div className={styles.securityCard}>
+                    <div className={clsx(styles.securityCard, hiddenCards[4] && styles["securityCard--hide"])}>
                         <div className={clsx("svg", styles.icon)}>
                             <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clipPath="url(#clip0_115_2757)">

@@ -38,7 +38,7 @@ export default function Information () {
     ];
 
     return (
-        <section className={clsx("section-v-gap-40-112", styles.information)}>
+        <section className={clsx("section-v-gap-40-112", styles.information)} id="faqs">
             <div className={clsx(styles.informationWrapper, "m-container")}>
                 <div className={styles.mobileHeading}>
                     <SectionLabel text='Faqs' color='white' style={styles.sectionLabelInfo}/>

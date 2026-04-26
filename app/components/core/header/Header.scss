@@ -163,6 +163,38 @@ $animation-scroll-time: 0.3s;
             background-color: rgba(255,255,255, 0.2);
         }
     }
+
+    &.header--scroll.header--black {
+        .header-wrapper {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .main-menu {
+            a {
+                color: $color-white;
+            }
+        }
+
+        .hover-path {
+            fill: $color-white;
+        }
+
+        .qr-button {
+            border-color: $color-white;
+        }
+
+        &.header--hover {
+            .main-menu {
+                a {
+                    color: $color-white;
+                }
+            }
+            
+            .qr-button {
+                border-color: #898683;
+            }
+        }
+    }
 }
 
 .header-wrapper {

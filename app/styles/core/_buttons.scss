@@ -88,6 +88,7 @@ button {
 
     &.s-button--full {
         width: 100%;
+        min-width: 10px;
     }
 
     &.s-button--white {
@@ -283,6 +284,20 @@ button {
             display: flex;
             column-gap: 20px;
             background: $color-white;
+        }
+
+        &.qr-button-hover-wrapper--bottom {
+            bottom: auto;
+            left: auto;
+            top: 0;
+            right: 0;
+            padding-bottom: 0;
+            padding-top: 72px;
+        }
+
+        &.qr-button-hover-wrapper--top-left {
+            left: auto;
+            right: 0; 
         }
     }
 

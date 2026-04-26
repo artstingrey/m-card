@@ -168,6 +168,7 @@
 
 .rulesButton {
     margin-top: 24px;
+    width: 100%;
 }
 
 @media only screen and (min-width: $break-point-tablet) {
@@ -240,6 +241,7 @@
 
     .rulesButton {
         margin-top: 28px;
+        width: auto;
     }
 
     .wordsWrapper {
