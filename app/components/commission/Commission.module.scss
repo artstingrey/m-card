@@ -191,6 +191,15 @@
     .commissionItem {
         padding: 40px;
         border-radius: 30px;
+
+        h3 {
+            font-size: 52px;
+            min-height: 104px;
+        }
+    }
+
+    .commissionItemCard {
+        padding: 0;
     }
 
     .commissionPrice {
