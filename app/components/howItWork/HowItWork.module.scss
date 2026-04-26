@@ -239,7 +239,7 @@
 @media only screen and (min-width: $break-point-full-style) {
     .cards {
         h3 {
-            font-size: 52px;
+            font-size: 50px;
         }
 
         p {
@@ -255,7 +255,13 @@
     }
 
     .cardTextPart {
-        padding-right: 40px;
+        // padding-right: 40px;
+        width: 30%;
+    }
+
+    .cardImagePart {
+        width: 66%;
+        max-width: 508px;
     }
 
     .number {
