@@ -409,37 +409,36 @@
     }
 
     .wordsWrapper {
-        transform: translateY(-32px);
-        animation: none;
+        transform: translateY(-24px);
     }
 
     @keyframes spin {
         0% {
-            transform: translateY(-32px);
+            transform: translateY(-24px);
         }
 
         17% {
-            transform: translateY(-109px);
+            transform: translateY(-102px);
         }
 
         34% {
-            transform: translateY(-107px);
+            transform: translateY(-100px);
         }
 
         52% {
-            transform: translateY(-186px);
+            transform: translateY(-178px);
         }
 
         67% {
-            transform: translateY(-184px);
+            transform: translateY(-176px);
         }
 
         86% {
-            transform: translateY(-262px);
+            transform: translateY(-254px);
         }
 
         100% {
-            transform: translateY(-260px);
+            transform: translateY(-252px);
         }
     }
 }
