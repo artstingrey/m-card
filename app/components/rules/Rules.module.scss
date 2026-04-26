@@ -407,4 +407,39 @@
     .rulesButton {
         margin-top: 40px;
     }
+
+    .wordsWrapper {
+        transform: translateY(-32px);
+        animation: none;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: translateY(-32px);
+        }
+
+        17% {
+            transform: translateY(-109px);
+        }
+
+        34% {
+            transform: translateY(-107px);
+        }
+
+        52% {
+            transform: translateY(-186px);
+        }
+
+        67% {
+            transform: translateY(-184px);
+        }
+
+        86% {
+            transform: translateY(-262px);
+        }
+
+        100% {
+            transform: translateY(-260px);
+        }
+    }
 }
