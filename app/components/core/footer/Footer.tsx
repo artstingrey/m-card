@@ -1,9 +1,6 @@
 import clsx from "clsx";
 import Link from "next/link";
-import { mainMenu } from "@/app/config/menu.main";
-import { MailIcon, TelegramGreyIcon } from "../socials/Icons";
 import { FooterLogo } from "../Logo";
-import { secondMenu } from "@/app/config/menu.footer";
 import styles from "./Footer.module.scss";
 import Socials from "../socials/Socials";
 import LaunchButton from "../launchButton/LaunchButton";
@@ -64,7 +61,7 @@ export default function Footer() {
                     <nav className={styles.terms}>
                         <ul>
                             <li><Link href="/terms-of-use">Terms of Use</Link></li>
-                            <li><Link href="#">Privacy Policy</Link></li>
+                            <li><Link href="/privacy-policy">Privacy Policy</Link></li>
                         </ul>
                     </nav>
                     <p className={styles.copy}>© {year} MCards. All rights reserved.</p>
