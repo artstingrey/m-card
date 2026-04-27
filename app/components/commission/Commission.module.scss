@@ -138,7 +138,7 @@
 
 @media only screen and (min-width: $break-point-normal) {
     .commissionsContainer {
-        margin-top: 60px;
+        margin-top: 40px;
     }
 
     .commissionItem {
@@ -165,10 +165,10 @@
         justify-content: space-between;
         align-items: center;
         min-height: 93px;
-        margin-top: 26px;
+        margin-top: 20px;
 
         p {
-            font-size: 18px;
+            font-size: 16px;
             margin: 0;
             &:first-child {
                 width: 60%;
@@ -207,6 +207,17 @@
         
         span {
             font-size: 42px;
+        }
+    }
+
+    .commissionsContainer {
+        margin-top: 60px;
+    }
+
+    .commissionItemText {
+        margin-top: 26px;
+        p {
+            font-size: 18px;
         }
     }
 }

@@ -116,8 +116,6 @@
     }
 
     .sAccordionItemContent {
-        font-size: 18px;
-
         p {
             margin: 14px 0 0 0;
         }
@@ -130,9 +128,11 @@
             width: 70px;
             height: 70px;
         }
-    }  
+    }
 }
 
 @media only screen and (min-width: $break-point-full-style) {
-
+    .sAccordionItemContent {
+        font-size: 18px;
+    }
 }

@@ -16,11 +16,11 @@
 
         &:hover {
             .hoverRect {
-                fill: #262B1A;
+                fill: $color-black90;
             }
 
             .hoverPath {
-                fill: #D1F249;
+                fill: $color-white;
             }
         }
 	}

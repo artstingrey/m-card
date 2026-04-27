@@ -113,6 +113,7 @@ h4 {
 
 	p {
 		margin: 0;
+		font-size: 16px;
 		padding-bottom: 24px;
 		color: $color-black90;
 	}
@@ -219,7 +220,7 @@ h4 {
 
 @media only screen and (min-width: $break-point-normal) {
 	h2 {
-		font-size: 80px;
+		font-size: 68px;
 	}
 	
 	.about-h2 {

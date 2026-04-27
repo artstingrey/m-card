@@ -11,10 +11,10 @@ export default function Socials({style = "", color = ''}:SocialsType) {
     return (
        <div className={clsx(styles.socials, style)}>
             <a href="#" className="svg" target="_blank" rel="noreferrer noopener">
-                <InstagramIcon />
+                <InstagramIcon classnameHoverPath={styles.hoverPath} classnameHoverRect={styles.hoverRect} />
             </a>
             <a href="#" className="svg" target="_blank" rel="noreferrer noopener">
-                <TelegramIcon />
+                <TelegramIcon classnameHoverPath={styles.hoverPath} classnameHoverRect={styles.hoverRect} />
             </a>
         </div>
     );

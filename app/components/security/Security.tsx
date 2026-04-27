@@ -109,6 +109,7 @@ export default function Security () {
                 <div
                     ref={textPartRef}
                     className={clsx(
+                        styles.textPartNormal,
                         textPartState === 'fixed' && styles.textPart,
                         textPartState === 'bottom' && styles.textPartBottom
                     )}

@@ -20,6 +20,7 @@
 
     h2 {
         margin: 0;
+        white-space: initial;
     }
 
     p {
@@ -115,6 +116,10 @@
 
         p {
             margin-top: 32px;
+        }
+
+        h2 {
+            white-space: pre-line;
         }
     }
 

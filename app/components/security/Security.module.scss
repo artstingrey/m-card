@@ -115,12 +115,18 @@
         }
     }
 
+    .textPartNormal {
+        position: relative;
+        top: 0;
+    }
+
     .textPart,
     .textPartBottom {
         left: 0;
         width: 100%;
         padding-top: 80px;
         padding-bottom: 80px;
+        // transition: all 0.2s;
     }
 
     .textPart {
@@ -130,6 +136,7 @@
 
     .textPartBottom {
         position: absolute;
+        top: auto;
         bottom: 0;
     }
 

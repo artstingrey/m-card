@@ -7,7 +7,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 
 const BANNERS_LIST = [
     {
-        title: 'Пополняйте криптой',
+        title: 'Пополняйте\n криптой',
         text: 'Отправляйте USDT или другую поддерживаемую криптовалюту и начните тратить всего за несколько секунд',
         color: '#F4EFE8',
         image: {
@@ -22,7 +22,7 @@ const BANNERS_LIST = [
         wordColor: '#ECE3DB'
     },
     {
-        title: 'Пополняйте карту рублями через СБП',
+        title: 'Пополняйте\n карту рублями\n через СБП',
         text: 'Переведите рубли через СБП — и баланс вашей карты будет пополнен мгновенно',
         color: '#EEC9F5',
         image: {
@@ -37,7 +37,7 @@ const BANNERS_LIST = [
         wordColor: '#ECB9EB'
     },
     {
-        title: 'Тратьте по всему миру',
+        title: 'Тратьте по\n всему миру',
         text: 'Ваша карта работает за границей так же просто, как дома',
         color: 'rgba(0, 180, 255, 1)',
         image: {
@@ -49,10 +49,10 @@ const BANNERS_LIST = [
         imageMobPos: 40, 
         imagePos: 'bottom' as const,
         wordType: 'spend' as const,
-        wordColor: '#73CCF7'
+        wordColor: '#80d9ff'
     },
     {
-        title: 'Работает c Apple Pay & Google Pay',
+        title: 'Работает\n c Apple Pay &\n Google Pay',
         text: 'От подписок на стриминг до бронирования путешествий — всё оплачивается без проблем.',
         color: '#F4EFE8',
         image: {
@@ -67,7 +67,7 @@ const BANNERS_LIST = [
         wordColor: '#ECE3DB'
     },
     {
-        title: 'личное остаётся личным',
+        title: 'личное\n остаётся\n личным',
         text: 'Мы не собираем больше информации, чем необходимо. Без долгих проверок — ваша карта готова всего за 60 секунд.',
         color: '#EEC9F5',
         image: {
@@ -82,7 +82,7 @@ const BANNERS_LIST = [
         wordColor: '#ECB9EB'
     },
     {
-        title: 'Поддержка 24/7',
+        title: 'Поддержка\n 24/7',
         text: 'Помощь всегда рядом — наша команда на связи днём и ночью.',
         color: '#1E1E1E',
         textColor: 'white' as const,

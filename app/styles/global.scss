@@ -807,9 +807,13 @@ button:disabled {
 
 @media only screen and (min-width: $break-point-small) {
 	
+	body {
+		font-size: 14px;
+	}
+
 	.logo {
-		width: 170px;
-		height: 40px;
+		width: 120px;
+		height: auto;
 
 		.logo-d {
 			display: block;
@@ -947,8 +951,8 @@ button:disabled {
 	}
 
 	.text-label {
-		height: 30px;
-		font-size: 18px;	
+		height: 26px;
+		font-size: 16px;	
 	}
 
 	.text-page {
@@ -958,11 +962,16 @@ button:disabled {
 
 @media only screen and (min-width: $break-point-medium) {
 	body {
-		font-size: 18px;
+		font-size: 16px;
 	}
 }
 
 @media only screen and (min-width: $break-point-normal) {
+
+	.logo {
+		width: 140px;
+	}
+
 	.screen-section-fixed-h {
 		height: 550px;
 	}
@@ -983,6 +992,12 @@ button:disabled {
 }
 
 @media only screen and (min-width: $break-point-medium-large) {
+
+	.text-label {
+		height: 30px;
+		font-size: 18px;	
+	}
+
 	.m-container, .m-container-80 {
 		max-width: 1920px;
 		padding-left: $main-padding-l;
@@ -998,6 +1013,15 @@ button:disabled {
 }
 
 @media only screen and (min-width: $break-point-full-style) {
+
+	.logo {
+		width: 170px;
+		height: 40px;
+	}
+
+	body {
+		font-size: 18px;
+	}
 	.screen-section__inner, .screen-section__inner {
 		width: 100%;
 		max-width: $max-width;
