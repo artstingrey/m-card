@@ -8,7 +8,7 @@ export default function LegalLayout({
 }>) {
   return (
     <>
-      <Header color='black' />
+      <Header color='black-text' />
       {children}
       <Footer />
     </>

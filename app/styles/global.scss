@@ -787,6 +787,7 @@ button:disabled {
 
 .text-page {
 	background: #F4EFE8;
+	padding-top: 152px;
 }
 
 @media only screen and (min-width: $break-point-tablet) {
@@ -948,6 +949,10 @@ button:disabled {
 	.text-label {
 		height: 30px;
 		font-size: 18px;	
+	}
+
+	.text-page {
+		padding-top: 214px;
 	}
 }
 

@@ -68,6 +68,18 @@ $animation-scroll-time: 0.3s;
         }  
     }
 
+    &.header--black-text {
+        .main-menu {
+            a {
+                color: $color-black;
+            }
+        }
+
+        .hover-path {
+            fill: $color-black;
+        }
+    }
+
     &.header--white-transparent {
         .header-wrapper {
             background-color: rgba(255,255,255, 0.2);

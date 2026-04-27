@@ -11,7 +11,7 @@ import Socials from "../socials/Socials";
 import { ACTIVE_CLASS } from "@/app/utils/constants";
 
 type HeaderProps = {
-  color?: "black" | "white" | "";
+  color?: "black" | "white" | "black-text" | "";
 };
 
 export default function Header({ color = '' }: HeaderProps) {
@@ -114,6 +114,7 @@ export default function Header({ color = '' }: HeaderProps) {
           isHover ? "header--hover" : "",
           color === "black" && "header--black",
           color === "white" && "header--white",
+          color == "black-text" && "header--black-text",
           sectionColorClass,
           headerState === "normal" && "header--normal",
           headerState === "change" && "header--change",

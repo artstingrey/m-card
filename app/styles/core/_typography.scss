@@ -77,6 +77,66 @@ h4 {
 	margin: 0 0 24px 0;
 }
 
+.text-content {
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 40px;
+
+	h1 {
+		font-family: $font-bion;
+		font-weight: 700;
+		font-size: 48px;
+		line-height: 90%;
+		letter-spacing: -6%;
+		text-align: center;
+		text-transform: uppercase;
+		padding-bottom: 80px;
+		margin: 0;
+		color: $color-black;
+		
+		br {
+			display: none;
+		}
+	}
+}
+
+.text-content-wrapper {
+	padding-top: 40px;
+
+	h2 {
+		margin: 24px 0 24px 0;
+		color: $color-black90;
+		&:first-child {
+			margin: 0;
+		}
+	}
+
+	p {
+		margin: 0;
+		padding-bottom: 24px;
+		color: $color-black90;
+	}
+}
+
+@media only screen and (min-width: 500px) {
+	.text-content {
+		h1 {
+			br {
+				display: block;
+			}
+		}
+	}
+}
+
+
+@media only screen and (min-width: $break-point-tablet) {
+	.text-content {
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 886px;
+	}
+}
+
 @media only screen and (min-width: $break-point-small) {
 	h1,.h1-style {
 		font-size: 4.0vw;
@@ -123,6 +183,20 @@ h4 {
 			float: left;
 		}
 	}
+
+	.text-content {
+		padding-left: 0;
+		padding-right: 0;
+		padding-bottom: 60px;
+
+		h1 {
+			font-size: 70px;
+		}
+	}
+
+	.text-content-wrapper {
+		padding-top: 60px;
+	}
 }
 
 @media only screen and (min-width: $break-point-medium) {
@@ -134,6 +208,12 @@ h4 {
 	.about-h2 {
 		font-size: 48px;
 		line-height: 48px;
+	}
+
+	.text-content {
+		h1 {
+			font-size: 80px;
+		}
 	}
 }
 
@@ -154,6 +234,23 @@ h4 {
 	
 	h3 {
 		font-size: 42px;
+	}
+
+	.text-content {
+		padding-bottom: 80px;
+		h1 {
+			font-size: 90px;
+			line-height: 80%;
+			letter-spacing: -5%;
+		}
+	}
+
+	.text-content-wrapper {
+		padding-top: 80px;
+
+		h2 {
+			font-size: 52px;
+		}
 	}
 }
 
@@ -198,5 +295,16 @@ h4 {
 		font-size: 40px;
 		line-height: 40px;
 		margin: 0 0 32px 0;
+	}
+
+	.text-content {
+		padding-bottom: 112px;
+		h1 {
+			font-size: 142px;
+		}
+	}
+
+	.text-content-wrapper {
+		padding-top: 112px;
 	}
 }
