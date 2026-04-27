@@ -112,6 +112,12 @@
     .haveQuestionLabel {
         margin-top: 24px;
     }
+
+    .noAnswerButton {
+        button {
+            display: none !important;
+        }
+    }
 }
 
 @media only screen and (min-width: $break-point-medium) {
