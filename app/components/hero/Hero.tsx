@@ -20,7 +20,6 @@ export default function Hero() {
                     media="(min-width: 769px)"
                 />
             </video>
-            
             <div className={clsx("m-container", styles.heroContainer)}>
                 <div className={styles.heroTextPart}>
                     <div className={styles.heroTextPartWrapper}>

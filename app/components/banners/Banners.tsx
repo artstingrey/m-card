@@ -16,7 +16,13 @@ const BANNERS_LIST = [
             height: 834,
             alt: 'Banner image'
         },
-        imageMobPos: 0, 
+        imageMob: {
+            src: '/images/banners/banner1-m.png',
+            width: 750,
+            height: 640,
+            alt: 'Banner image'
+        },
+        imageMobPos: 26, 
         imagePos: 'center' as const,
         wordType: 'topUp' as const,
         wordColor: '#ECE3DB'
@@ -31,7 +37,13 @@ const BANNERS_LIST = [
             height: 1800,
             alt: 'Banner image'
         },
-        imageMobPos: 80, 
+        imageMob: {
+            src: '/images/banners/banner2-m.png',
+            width: 750,
+            height: 640,
+            alt: 'Banner image'
+        },
+        imageMobPos: 26, 
         imagePos: 'center' as const,
         wordType: 'topUp' as const,
         wordColor: '#ECB9EB'
@@ -39,14 +51,20 @@ const BANNERS_LIST = [
     {
         title: 'Тратьте по\n всему миру',
         text: 'Ваша карта работает за границей так же просто, как дома',
-        color: '80D9FF',
+        color: '#80D9FF',
         image: {
             src: '/images/banners/banner3.png',
             width: 1840,
             height: 1800,
             alt: 'Banner image'
         },
-        imageMobPos: 40, 
+        imageMob: {
+            src: '/images/banners/banner3-m.png',
+            width: 750,
+            height: 640,
+            alt: 'Banner image'
+        },
+        imageMobPos: 44, 
         imagePos: 'bottom' as const,
         wordType: 'spend' as const,
         wordColor: '#73CCF7'
@@ -61,7 +79,13 @@ const BANNERS_LIST = [
             height: 1800,
             alt: 'Banner image'
         },
-        imageMobPos: 40, 
+        imageMob: {
+            src: '/images/banners/banner4-m.png',
+            width: 750,
+            height: 654,
+            alt: 'Banner image'
+        },
+        imageMobPos: 3, 
         imagePos: 'bottom' as const,
         wordType: 'spend' as const,
         wordColor: '#ECE3DB'
@@ -76,7 +100,13 @@ const BANNERS_LIST = [
             height: 1800,
             alt: 'Banner image'
         },
-        imageMobPos: 84, 
+        imageMob: {
+            src: '/images/banners/banner5-m.png',
+            width: 750,
+            height: 640,
+            alt: 'Banner image'
+        },
+        imageMobPos: 28, 
         imagePos: 'center' as const,
         wordType: 'ownIt' as const,
         wordColor: '#ECB9EB'
@@ -90,6 +120,12 @@ const BANNERS_LIST = [
             src: '/images/banners/banner6.png',
             width: 1840,
             height: 1800,
+            alt: 'Banner image'
+        },
+        imageMob: {
+            src: '/images/banners/banner6-m.png',
+            width: 641,
+            height: 640,
             alt: 'Banner image'
         },
         imageMobPos: 0,
@@ -251,7 +287,7 @@ export default function Banners () {
             className={clsx("section-v-gap-0-64","m-container",styles.banners)}
         >
             {BANNERS_LIST.map((option, index) => {
-                return <Banner key={'banner-' + index} progress={progressList[index]} index={index} title={option.title} text={option.text} color={option.color} textColor={option?.textColor} image={option.image} imageMobPos={option.imageMobPos} imagePos={option.imagePos} wordType={option.wordType} wordColor={option.wordColor}/>
+                return <Banner key={'banner-' + index} progress={progressList[index]} index={index} title={option.title} text={option.text} color={option.color} textColor={option?.textColor} image={option.image} imageMob={option.imageMob} imageMobPos={option.imageMobPos} imagePos={option.imagePos} wordType={option.wordType} wordColor={option.wordColor}/>
             })}
         </section>
     );
