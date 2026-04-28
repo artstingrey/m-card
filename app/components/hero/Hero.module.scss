@@ -80,12 +80,7 @@
 }
 
 .heroFieldPart {
-    height: 60%;
-}
-
-.heroButtonWrapper {
-    position: sticky;
-    top: 10%;
+    height: 50%;
 }
 
 .heroMainTextMob {
@@ -94,6 +89,13 @@
 
 .heroMainTextDesc {
     display: none;
+}
+
+.heroButtonWrapper {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
 }
 
 @media only screen and (min-width: 500px) {
