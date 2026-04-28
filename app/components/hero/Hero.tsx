@@ -60,11 +60,11 @@ export default function Hero() {
                     type="video/mp4"
                     media="(max-width: 768px)"
                 />
-                <source
+                {/* <source
                     src="/video/hero_d.mp4"
                     type="video/mp4"
                     media="(min-width: 769px)"
-                />
+                /> */}
             </video>
             <div className={clsx("m-container", styles.heroContainer)}>
                 <div className={styles.heroTextPart}>
