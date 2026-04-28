@@ -59,7 +59,7 @@ export default function Hero() {
                     </div>
                 </div>
                 <div className={styles.heroFieldPart}>
-                    <div className="s-button-launch-wrapper">
+                    <div className={clsx("s-button-launch-wrapper",styles.heroButtonWrapper)}>
                         <a href="#" className={clsx("s-button", "s-button--full", styles.heroButton)}>Запустить MCard</a>
                         <button className="qr-button">
                             <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
