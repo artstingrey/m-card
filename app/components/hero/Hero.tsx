@@ -1,11 +1,57 @@
+'use client';
+
 import { clsx } from 'clsx';
-import Image from "next/image";
+import { useEffect, useRef, useState } from 'react';
 import styles from './Hero.module.scss';
 import Socials from '../core/socials/Socials';
 
 export default function Hero() {
+    const heroRef = useRef<HTMLElement>(null);
+    const [isHeroButtonEnd, setIsHeroButtonEnd] = useState(false);
+
+    useEffect(() => {
+        const hero = heroRef.current;
+
+        if (!hero) {
+            return;
+        }
+
+        let rafId = 0;
+
+        const updateHeroButtonState = () => {
+            rafId = 0;
+
+            const heroRect = hero.getBoundingClientRect();
+            const heroEndStartLine = window.innerHeight * 1.2;
+
+            setIsHeroButtonEnd(heroRect.bottom <= heroEndStartLine);
+        };
+
+        const handleViewportChange = () => {
+            if (rafId) {
+                return;
+            }
+
+            rafId = window.requestAnimationFrame(updateHeroButtonState);
+        };
+
+        updateHeroButtonState();
+
+        window.addEventListener('scroll', handleViewportChange, { passive: true });
+        window.addEventListener('resize', handleViewportChange);
+
+        return () => {
+            window.removeEventListener('scroll', handleViewportChange);
+            window.removeEventListener('resize', handleViewportChange);
+
+            if (rafId) {
+                window.cancelAnimationFrame(rafId);
+            }
+        };
+    }, []);
+
     return (
-        <section className={styles.hero}>
+        <section ref={heroRef} className={styles.hero}>
             {/* <Image className={styles.heroBgMob} src="/images/hero-m.jpg"  alt="hero bg mobile" quality={100} loading="eager" sizes="100vw" fill priority/>
             <Image className={styles.heroBg} src="/images/hero-b.jpg"  alt="hero bg" quality={100} loading="eager" width="3840" height="2924" priority/> */}
             <video autoPlay muted loop playsInline preload="none">
@@ -59,7 +105,7 @@ export default function Hero() {
                     </div>
                 </div>
                 <div className={styles.heroFieldPart}>
-                    <div className={clsx("s-button-launch-wrapper",styles.heroButtonWrapper)}>
+                    <div className={clsx("s-button-launch-wrapper", styles.heroButtonWrapper, isHeroButtonEnd && styles.heroButtonWrapperEnd)}>
                         <a href="#" className={clsx("s-button", "s-button--full", styles.heroButton)}>Запустить MCard</a>
                         <button className="qr-button">
                             <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">

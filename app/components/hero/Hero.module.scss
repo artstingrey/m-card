@@ -95,6 +95,12 @@
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
+    bottom: 10%;
+}
+
+.heroButtonWrapperEnd {
+    // pointer-events: auto;
+    position: absolute;
     bottom: 20%;
 }
 
