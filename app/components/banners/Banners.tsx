@@ -39,7 +39,7 @@ const BANNERS_LIST = [
     {
         title: 'Тратьте по\n всему миру',
         text: 'Ваша карта работает за границей так же просто, как дома',
-        color: 'rgba(0, 180, 255, 1)',
+        color: '80D9FF',
         image: {
             src: '/images/banners/banner3.png',
             width: 1840,
@@ -49,7 +49,7 @@ const BANNERS_LIST = [
         imageMobPos: 40, 
         imagePos: 'bottom' as const,
         wordType: 'spend' as const,
-        wordColor: '#80d9ff'
+        wordColor: '#73CCF7'
     },
     {
         title: 'Работает\n c Apple Pay &\n Google Pay',
