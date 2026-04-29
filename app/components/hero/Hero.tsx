@@ -17,24 +17,6 @@ export default function Hero() {
     const videoRef = useRef<HTMLVideoElement>(null);
     const [isVideoReady, setIsVideoReady] = useState(false);
 
-
-    // const nextSrc = window.innerWidth < 1080 ? '/video/hero_m.mp4' : '/video/hero_d.mp4';
-
-    useEffect(() => {
-        const video = videoRef.current;
-        if (!video) return;
-
-        const nextSrc =
-                window.innerWidth < 1080
-                ? '/video/hero_m.mp4'
-                : '/video/hero_d.mp4';
-
-            video.src = nextSrc;
-            video.load();
-
-            video.play().catch(() => {});
-    },[]);
-
     useEffect(() => {
         const hero = heroRef.current;
         
@@ -42,10 +24,6 @@ export default function Hero() {
         if (!hero) {
             return;
         }
-
-        const updateVideoSrc = () => {
-            
-        };
 
         let rafId = 0;
 
@@ -73,11 +51,9 @@ export default function Hero() {
 
         const resizeFunc = () => {
             handleViewportChange();
-            // updateVideoSrc();
         };
 
         updateHeroButtonState();
-        updateVideoSrc();
 
         window.addEventListener('scroll', handleViewportChange, { passive: true });
         window.addEventListener('resize', resizeFunc);
@@ -94,8 +70,13 @@ export default function Hero() {
 
     return (
         <section ref={heroRef} className={styles.hero}>
-            {/* {src && <video autoPlay muted loop playsInline preload="auto" key={src}><source src={src} type="video/mp4" /></video>} */}
-            <video ref={videoRef} autoPlay muted loop playsInline preload="auto" onLoadedData={() => {alert("video load"); setIsVideoReady(true);}}></video>
+            <video autoPlay muted loop playsInline preload="auto" className={styles.heroMobileVideo}>
+                <source src="/video/hero_m.mp4" type="video/mp4" />
+            </video>
+
+            <video autoPlay muted loop playsInline preload="auto" className={styles.heroDesctopVideo}>
+                <source src="/video/hero_d.mp4" type="video/mp4" />
+            </video>
 
             {/* {!firstState && <Image className={styles.heroBgMob} src="/images/hero-m.jpg"  alt="hero bg mobile" quality={100} loading="eager" sizes="100vw" fill priority/>}
             {!firstState && <Image className={styles.heroBg} src="/images/hero-b.jpg"  alt="hero bg" quality={100} loading="eager" width="3840" height="2924" priority/>} */}
