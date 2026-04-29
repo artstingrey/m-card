@@ -8,7 +8,7 @@ import Socials from '../core/socials/Socials';
 export default function Hero() {
     const heroRef = useRef<HTMLElement>(null);
     const [isHeroButtonEnd, setIsHeroButtonEnd] = useState(false);
-    const [src, setSrc] = useState('');
+    const [src, setSrc] = useState('/video/hero_m.mp4');
 
     // const nextSrc = window.innerWidth < 1080 ? '/video/hero_m.mp4' : '/video/hero_d.mp4';
 
@@ -20,16 +20,16 @@ export default function Hero() {
             return;
         }
 
-         const updateVideoSrc = () => {
-            const nextSrc =
-            window.innerWidth < 1080
-                ? '/video/hero_m.mp4'
-                : '/video/hero_d.mp4';
+        // const updateVideoSrc = () => {
+        //     const nextSrc =
+        //     window.innerWidth < 1080
+        //         ? '/video/hero_m.mp4'
+        //         : '/video/hero_d.mp4';
 
-            setSrc((currentSrc) => {
-            return currentSrc === nextSrc ? currentSrc : nextSrc;
-            });
-        };
+        //     setSrc((currentSrc) => {
+        //     return currentSrc === nextSrc ? currentSrc : nextSrc;
+        //     });
+        // };
 
         let rafId = 0;
 
@@ -57,11 +57,11 @@ export default function Hero() {
 
         const resizeFunc = () => {
             handleViewportChange();
-            updateVideoSrc();
+            //updateVideoSrc();
         };
 
         updateHeroButtonState();
-        updateVideoSrc();
+        //updateVideoSrc();
 
         window.addEventListener('scroll', handleViewportChange, { passive: true });
         window.addEventListener('resize', resizeFunc);
@@ -82,7 +82,7 @@ export default function Hero() {
             <Image className={styles.heroBg} src="/images/hero-b.jpg"  alt="hero bg" quality={100} loading="eager" width="3840" height="2924" priority/> */}
             {/* {src && <video autoPlay muted loop playsInline preload="auto" key={src}><source src={src} type="video/mp4" /></video>} */}
             <video autoPlay muted loop playsInline preload="auto" key={src}>
-                <source src="/video/hero_m.mp4" type="video/mp4" />
+                <source src={src} type="video/mp4" />
             </video>
             <div className={clsx("m-container", styles.heroContainer)}>
                 <div className={styles.heroTextPart}>
