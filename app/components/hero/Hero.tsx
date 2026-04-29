@@ -80,9 +80,8 @@ export default function Hero() {
         <section ref={heroRef} className={styles.hero}>
             {/* <Image className={styles.heroBgMob} src="/images/hero-m.jpg"  alt="hero bg mobile" quality={100} loading="eager" sizes="100vw" fill priority/>
             <Image className={styles.heroBg} src="/images/hero-b.jpg"  alt="hero bg" quality={100} loading="eager" width="3840" height="2924" priority/> */}
-            <video autoPlay muted loop playsInline preload="auto" key={src}>
-                <source src={src} type="video/mp4" />
-            </video>
+            {src && <video autoPlay muted loop playsInline preload="auto" key={src}><source src={src} type="video/mp4" /></video>}
+            {/* <video autoPlay muted loop playsInline preload="auto" key={src}><source src={src} type="video/mp4" /></video> */}
             <div className={clsx("m-container", styles.heroContainer)}>
                 <div className={styles.heroTextPart}>
                     <div className={styles.heroTextPartWrapper}>
