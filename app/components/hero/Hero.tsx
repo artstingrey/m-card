@@ -54,17 +54,17 @@ export default function Hero() {
         <section ref={heroRef} className={styles.hero}>
             {/* <Image className={styles.heroBgMob} src="/images/hero-m.jpg"  alt="hero bg mobile" quality={100} loading="eager" sizes="100vw" fill priority/>
             <Image className={styles.heroBg} src="/images/hero-b.jpg"  alt="hero bg" quality={100} loading="eager" width="3840" height="2924" priority/> */}
-            <video autoPlay muted loop playsInline preload="none">
+            <video autoPlay muted loop playsInline preload="auto">
                 <source
                     src="/video/hero_m.mp4"
                     type="video/mp4"
                     media="(max-width: 768px)"
                 />
-                {/* <source
+                <source
                     src="/video/hero_d.mp4"
                     type="video/mp4"
                     media="(min-width: 769px)"
-                /> */}
+                />
             </video>
             <div className={clsx("m-container", styles.heroContainer)}>
                 <div className={styles.heroTextPart}>
