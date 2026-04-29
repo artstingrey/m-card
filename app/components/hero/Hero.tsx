@@ -1,9 +1,12 @@
 'use client';
 
 import { clsx } from 'clsx';
-import { useEffect, useRef, useState } from 'react';
 import styles from './Hero.module.scss';
+import { useEffect, useRef, useState } from 'react';
 import Socials from '../core/socials/Socials';
+import Image from "next/image";
+
+const HERO_D_V_URL = "/video/hero_d.mp4";
 
 export default function Hero() {
     const heroRef = useRef<HTMLElement>(null);
@@ -78,12 +81,14 @@ export default function Hero() {
 
     return (
         <section ref={heroRef} className={styles.hero}>
-            {/* <Image className={styles.heroBgMob} src="/images/hero-m.jpg"  alt="hero bg mobile" quality={100} loading="eager" sizes="100vw" fill priority/>
-            <Image className={styles.heroBg} src="/images/hero-b.jpg"  alt="hero bg" quality={100} loading="eager" width="3840" height="2924" priority/> */}
+            {/* <Image className={styles.heroBgMob} src="/images/hero-m.jpg"  alt="hero bg mobile" quality={100} loading="eager" sizes="100vw" fill priority/> */}
+            
             {/* {src && <video autoPlay muted loop playsInline preload="auto" key={src}><source src={src} type="video/mp4" /></video>} */}
             <video autoPlay muted loop playsInline preload="auto" key={src}>
                 <source src={src} type="video/mp4" />
             </video>
+            {src !== HERO_D_V_URL && <Image className={styles.heroBg} src="/images/hero-b.jpg"  alt="hero bg" quality={100} loading="eager" width="3840" height="2924" priority/>}
+            
             <div className={clsx("m-container", styles.heroContainer)}>
                 <div className={styles.heroTextPart}>
                     <div className={styles.heroTextPartWrapper}>
