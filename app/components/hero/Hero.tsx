@@ -20,27 +20,31 @@ export default function Hero() {
 
     // const nextSrc = window.innerWidth < 1080 ? '/video/hero_m.mp4' : '/video/hero_d.mp4';
 
+    useEffect(() => {
+        const video = videoRef.current;
+        if (!video) return;
+
+        const nextSrc =
+                window.innerWidth < 1080
+                ? '/video/hero_m.mp4'
+                : '/video/hero_d.mp4';
+
+            video.src = nextSrc;
+            video.load();
+
+            video.play().catch(() => {});
+    },[]);
 
     useEffect(() => {
         const hero = heroRef.current;
-        const video = videoRef.current;
+        
 
         if (!hero) {
             return;
         }
 
         const updateVideoSrc = () => {
-            if(video) {
-                const nextSrc =
-                    window.innerWidth < 1080
-                    ? '/video/hero_m.mp4'
-                    : '/video/hero_d.mp4';
-
-                video.src = nextSrc;
-                video.load();
-
-                video.play().catch(() => {});
-            }
+            
         };
 
         let rafId = 0;
@@ -91,7 +95,7 @@ export default function Hero() {
     return (
         <section ref={heroRef} className={styles.hero}>
             {/* {src && <video autoPlay muted loop playsInline preload="auto" key={src}><source src={src} type="video/mp4" /></video>} */}
-            <video ref={videoRef} autoPlay muted loop playsInline preload="auto" key={src} onLoadedData={() => setIsVideoReady(true)}>
+            <video ref={videoRef} autoPlay muted loop playsInline preload="auto" onLoadedData={() => setIsVideoReady(true)}>
                 
             </video>
 
