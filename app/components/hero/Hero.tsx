@@ -8,7 +8,9 @@ import Socials from '../core/socials/Socials';
 export default function Hero() {
     const heroRef = useRef<HTMLElement>(null);
     const [isHeroButtonEnd, setIsHeroButtonEnd] = useState(false);
-    const [src, setSrc] = useState('/video/hero_m.mp4');
+    const [src, setSrc] = useState('');
+
+    // const nextSrc = window.innerWidth < 1080 ? '/video/hero_m.mp4' : '/video/hero_d.mp4';
 
 
     useEffect(() => {
@@ -59,6 +61,7 @@ export default function Hero() {
         };
 
         updateHeroButtonState();
+        updateVideoSrc();
 
         window.addEventListener('scroll', handleViewportChange, { passive: true });
         window.addEventListener('resize', resizeFunc);
