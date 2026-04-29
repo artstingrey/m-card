@@ -8,16 +8,18 @@ type LaunchButtonType = {
     color?: "white" | "black" | "white-transparent" | "white-m-black-d" | "";
     qrColor?: "white-transparent" | "";
     labelPosition?: "bottom" | "top" | "top-left" | "";
+    href?: string;
+    target?: "_blank" | "";
 };
 
-export default function LaunchButton ({text, styles, typeButton = "", color = "black", qrColor = "", labelPosition = "top"}:LaunchButtonType) {
+export default function LaunchButton ({text, styles, typeButton = "", color = "black", qrColor = "", labelPosition = "top", href="#", target=""}:LaunchButtonType) {
     const colorClass = color == "" ? "" : "s-button--" + color;
     const qrColorClass = qrColor == "" ? "" : "qr-button--" + qrColor;
     const positionClass = labelPosition == "" ? "" : "qr-button-hover-wrapper--" + labelPosition;
 
     return (
         <div className={clsx(styles, "s-button-launch-wrapper")}>
-            <a href="#" className={clsx("s-button", typeButton == "full" ? "s-button--full" : "", colorClass)}>{text}</a>
+            <a href={href} className={clsx("s-button", typeButton == "full" ? "s-button--full" : "", colorClass)} target={target} rel={target == "_blank" ? "nonoopener nofollow" : ""}>{text}</a>
             <button className={clsx("qr-button",qrColorClass)}>
                 <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <mask id="mask0_263_49" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="35" height="35">

@@ -8,6 +8,7 @@ import clsx from 'clsx';
 import LaunchButton from '../core/launchButton/LaunchButton';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
+import { SUPPORT_URL } from '@/app/utils/constants';
 
 
 export default function Capabilities () {
@@ -31,7 +32,7 @@ export default function Capabilities () {
             <div className={styles.fixedSectionWrapper}>
                 <h2>Подходит ли<br></br> это вам?</h2>
                 <p>Мы всё объясним и поможем найти лучшее решение</p>
-                <LaunchButton text='Связаться с командой' color="white-m-black-d" styles={styles.capabilitiesButton}/>   
+                <LaunchButton text='Связаться с командой' color="white-m-black-d" styles={styles.capabilitiesButton} href={SUPPORT_URL} target="_blank" />   
             </div>
            
                 <Swiper

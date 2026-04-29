@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import styles from './Security.module.scss';
 import SectionLabel from '../sectionLabel/SectionLabel';
 import LaunchButton from '../core/launchButton/LaunchButton';
+import { SUPPORT_URL } from '@/app/utils/constants';
 
 const DESKTOP_SECURITY_WIDTH = 1080;
 const DEFAULT_MARGIN = 32;
@@ -117,7 +118,7 @@ export default function Security () {
                     <div ref={innerRef}>
                         <SectionLabel text="ВСЁ ПОД КОНТРОЛЕМ" color='white'/>
                         <h2 className='t-center'>Безопасность это наша забота, траты — ваша</h2>
-                        <LaunchButton text="Связаться с поддержкой" color='white' qrColor="white-transparent" styles={styles.textPartButton}/>
+                        <LaunchButton text="Связаться с поддержкой" color='white' qrColor="white-transparent" styles={styles.textPartButton} href={SUPPORT_URL} target='_blank'/>
                     </div>
                 </div>
                 <div className={styles.securityCards} style={{marginTop: marginState + "px"}}>
@@ -251,7 +252,7 @@ export default function Security () {
                     </div>
 
                 </div>
-                <LaunchButton text="Связаться с поддержкой" typeButton="full" color="white" styles={styles.bottomField}/>    
+                <LaunchButton text="Связаться с поддержкой" typeButton="full" color="white" styles={styles.bottomField} href={SUPPORT_URL} target='_blank'/>    
             </div>
         </section>
     );

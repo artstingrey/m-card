@@ -3,6 +3,7 @@ import styles from './Information.module.scss';
 import SectionLabel from '../sectionLabel/SectionLabel';
 import FAQ from '../FAQ/FAQ';
 import LaunchButton from '../core/launchButton/LaunchButton';
+import { SUPPORT_URL } from '@/app/utils/constants';
 
 export default function Information () {
 
@@ -65,7 +66,7 @@ export default function Information () {
                         </div>
                         <p className={styles.noAnswerTitle}>Не нашли ответ?</p>
                         <p className={styles.noAnswerText}>Мы на связи — пишите в любое время</p>
-                        <LaunchButton text="чат с поддержкой" styles={styles.noAnswerButton} typeButton="full"/>
+                        <LaunchButton text="чат с поддержкой" styles={styles.noAnswerButton} typeButton="full" href={SUPPORT_URL} target="_blank"/>
                     </div>
                 </div>
             </div>

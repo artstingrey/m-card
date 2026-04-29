@@ -4,6 +4,7 @@ import { FooterLogo } from "../Logo";
 import styles from "./Footer.module.scss";
 import Socials from "../socials/Socials";
 import LaunchButton from "../launchButton/LaunchButton";
+import { INSTAGRAM_URL, SUPPORT_URL, TELEGRAM_URL, TG_BOT_URL } from "@/app/utils/constants";
 
 export default function Footer() {
     
@@ -21,7 +22,7 @@ export default function Footer() {
                 <div className={styles.footerMiddle}>
                     <div className={styles.footerTitle}>
                         <h2>Трать так,  будто никто не<br></br> смотрит</h2>
-                        <LaunchButton text="Запустить MCard" labelPosition="top-left"/>
+                        <LaunchButton text="Запустить MCard" labelPosition="top-left" href={TG_BOT_URL} target="_blank"/>
                     </div>
                     <div className={styles.footerMenuWrapper}>
                         <div className={styles.footerMenuColumn}>
@@ -29,9 +30,8 @@ export default function Footer() {
                             <nav>
                                 <ul>
                                     <li><Link href="#card-works">Где работает карта</Link></li>
-                                    <li><a href="#">KYC</a></li>
                                     <li><Link href="#partner-program">Партнёрская программа</Link></li>
-                                    <li><a href="#">Поддержка</a></li>
+                                    <li><a href={SUPPORT_URL} target="_blank" rel="nonoopener nofollow">Поддержка</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -50,8 +50,8 @@ export default function Footer() {
                             <p>Следите за нами</p>
                             <nav>
                                 <ul>
-                                    <li><a href="#">Instagram</a></li>
-                                    <li><a href="#">Telegram</a></li>
+                                    <li><a href={INSTAGRAM_URL} target="_blank" rel="nonoopener nofollow">Instagram</a></li>
+                                    <li><a href={TELEGRAM_URL} target="_blank" rel="nonoopener nofollow">Telegram</a></li>
                                 </ul>
                             </nav>
                         </div>

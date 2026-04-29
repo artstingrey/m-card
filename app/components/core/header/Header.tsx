@@ -8,7 +8,7 @@ import MenuSection from "../menuSection/MenuSection";
 import { Logo } from "../Logo";
 import clsx from "clsx";
 import Socials from "../socials/Socials";
-import { ACTIVE_CLASS } from "@/app/utils/constants";
+import { ACTIVE_CLASS, TG_BOT_URL } from "@/app/utils/constants";
 
 type HeaderProps = {
   color?: "black" | "white" | "black-text" | "";
@@ -162,7 +162,7 @@ export default function Header({ color = '' }: HeaderProps) {
 
                 <div className="header__right_part"> 
                   <div className="s-button-launch-wrapper-reverse">
-                    <Link href="#" className="s-button s-button--small">Запустить MCard</Link>
+                    <Link href={TG_BOT_URL} target="_blank" className="s-button s-button--small" rel="nonoopener nofollow">Запустить MCard</Link>
                     <QrButton isSmall={true} color="white-transparent" clickEvent={openMenu} mouseEnter={() => {setIshover(true);}} />
                   </div>
                 </div>

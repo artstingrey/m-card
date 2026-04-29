@@ -5,6 +5,7 @@ import styles from './Hero.module.scss';
 import { useEffect, useRef, useState } from 'react';
 import Socials from '../core/socials/Socials';
 import Image from "next/image";
+import { TG_BOT_URL } from '@/app/utils/constants';
 
 const HERO_D_V_URL = "/video/hero_d.mp4";
 
@@ -121,7 +122,7 @@ export default function Hero() {
                 </div>
                 <div className={styles.heroFieldPart}>
                     <div className={clsx("s-button-launch-wrapper", styles.heroButtonWrapper, isHeroButtonEnd && styles.heroButtonWrapperEnd)}>
-                        <a href="#" className={clsx("s-button", "s-button--full", styles.heroButton)}>Запустить MCard</a>
+                        <a href={TG_BOT_URL} target='_blank' rel="nonoopener nofollow" className={clsx("s-button", "s-button--full", styles.heroButton)}>Запустить MCard</a>
                         <button className="qr-button">
                             <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <mask id="mask0_263_49" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="35" height="35">

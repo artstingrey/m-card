@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { InstagramIcon, TelegramIcon } from "./Icons";
 import styles from "./Socials.module.scss";
+import { INSTAGRAM_URL, TELEGRAM_URL } from "@/app/utils/constants";
 
 type SocialsType = {
     style?: string;
@@ -10,10 +11,10 @@ type SocialsType = {
 export default function Socials({style = "", color = ''}:SocialsType) {
     return (
        <div className={clsx(styles.socials, style)}>
-            <a href="#" className="svg" target="_blank" rel="noreferrer noopener">
+            <a href={INSTAGRAM_URL} className="svg" target="_blank" rel="noreferrer noopener">
                 <InstagramIcon classnameHoverPath={styles.hoverPath} classnameHoverRect={styles.hoverRect} />
             </a>
-            <a href="#" className="svg" target="_blank" rel="noreferrer noopener">
+            <a href={TELEGRAM_URL} className="svg" target="_blank" rel="noreferrer noopener">
                 <TelegramIcon classnameHoverPath={styles.hoverPath} classnameHoverRect={styles.hoverRect} />
             </a>
         </div>

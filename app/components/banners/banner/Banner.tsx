@@ -6,6 +6,7 @@ import { GetHelp, OwnIt, Spend, TopUp } from '../wordsSVG';
 
 import type { CSSProperties } from 'react';
 import LaunchButton from '../../core/launchButton/LaunchButton';
+import { TG_BOT_URL } from '@/app/utils/constants';
 
 type BannerType = {
     index: number;
@@ -55,7 +56,7 @@ export default function Banner ({index,progress = 0,title,text,color,textColor =
                 <div className={clsx(styles.textPart, textColor == 'white' ? styles.textPartWhite : '')}>
                     <h2>{title}</h2>
                     <p>{text}</p>
-                    <LaunchButton text='Запустить MCard' labelPosition='top-left' styles={styles.launch} />
+                    <LaunchButton text='Запустить MCard' labelPosition='top-left' styles={styles.launch} href={TG_BOT_URL} target='_blank'/>
                 </div>
             </div>
         </div>

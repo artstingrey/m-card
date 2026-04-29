@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import styles from './ScrollBanner.module.scss';
 import LaunchButton from '../core/launchButton/LaunchButton';
 import SectionLabel from '../sectionLabel/SectionLabel';
+import { SUPPORT_URL } from '@/app/utils/constants';
 
 export default function ScrollBanner () {
     const sectionRef = useRef<HTMLElement>(null);
@@ -75,7 +76,7 @@ export default function ScrollBanner () {
                     <div>
                         <h2 className='t-center'>Приводите друзей и<br></br> зарабатывайте</h2>
                         <p className='t-center'>Приглашайте друзей — и зарабатывайте с каждой их карты. Быстро и честно.</p>
-                        <LaunchButton text='Узнать подробнее' styles={styles.scrollBannerLink}/>
+                        <LaunchButton text='Узнать подробнее' styles={styles.scrollBannerLink} href={SUPPORT_URL} target="_blank"/>
                     </div>   
                 </div>
             </div>

@@ -1,4 +1,4 @@
-import { ACTIVE_CLASS } from "@/app/utils/constants";
+import { ACTIVE_CLASS, TG_BOT_URL } from "@/app/utils/constants";
 import Link from "next/link";
 import { LogoBlack } from "../Logo";
 import { mainMenu } from "@/app/config/menu.main";
@@ -39,7 +39,7 @@ export default function MenuSection({isActive, closeMenu}:MenuSectionProps) {
                 </nav>
 
                 <div className="mobile-menu__footer">
-                    <a href="#" className="s-button">Запустить MCard</a>
+                    <a href={TG_BOT_URL} target="_blank" className="s-button" rel="nonoopener nofollow">Запустить MCard</a>
                 </div>
             </div>    
         </div>
