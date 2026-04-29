@@ -95,9 +95,7 @@ export default function Hero() {
     return (
         <section ref={heroRef} className={styles.hero}>
             {/* {src && <video autoPlay muted loop playsInline preload="auto" key={src}><source src={src} type="video/mp4" /></video>} */}
-            <video ref={videoRef} autoPlay muted loop playsInline preload="auto" onLoadedData={() => setIsVideoReady(true)}>
-                
-            </video>
+            <video ref={videoRef} autoPlay muted loop playsInline preload="auto" onLoadedData={() => {alert("video load"); setIsVideoReady(true);}}></video>
 
             {/* {!firstState && <Image className={styles.heroBgMob} src="/images/hero-m.jpg"  alt="hero bg mobile" quality={100} loading="eager" sizes="100vw" fill priority/>}
             {!firstState && <Image className={styles.heroBg} src="/images/hero-b.jpg"  alt="hero bg" quality={100} loading="eager" width="3840" height="2924" priority/>} */}
