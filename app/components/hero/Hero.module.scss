@@ -169,6 +169,15 @@
     .heroButton {
         width: auto;
     }
+
+    .heroButtonWrapper {
+        position: static;
+        transform: translateY(0);
+    }
+
+    .heroButtonWrapperEnd {
+        position: static;
+    }
 }
 
 @media only screen and (min-width: $break-point-small) {

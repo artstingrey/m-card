@@ -8,6 +8,8 @@ import Socials from '../core/socials/Socials';
 export default function Hero() {
     const heroRef = useRef<HTMLElement>(null);
     const [isHeroButtonEnd, setIsHeroButtonEnd] = useState(false);
+    const [src, setSrc] = useState('/video/hero_m.mp4');
+
 
     useEffect(() => {
         const hero = heroRef.current;
@@ -16,9 +18,25 @@ export default function Hero() {
             return;
         }
 
+         const updateVideoSrc = () => {
+            const nextSrc =
+            window.innerWidth < 1080
+                ? '/video/hero_m.mp4'
+                : '/video/hero_d.mp4';
+
+            setSrc((currentSrc) => {
+            return currentSrc === nextSrc ? currentSrc : nextSrc;
+            });
+        };
+
         let rafId = 0;
 
         const updateHeroButtonState = () => {
+
+            if(window.innerWidth >= 768) {
+                return;
+            }
+
             rafId = 0;
 
             const heroRect = hero.getBoundingClientRect();
@@ -35,14 +53,19 @@ export default function Hero() {
             rafId = window.requestAnimationFrame(updateHeroButtonState);
         };
 
+        const resizeFunc = () => {
+            handleViewportChange();
+            updateVideoSrc();
+        };
+
         updateHeroButtonState();
 
         window.addEventListener('scroll', handleViewportChange, { passive: true });
-        window.addEventListener('resize', handleViewportChange);
+        window.addEventListener('resize', resizeFunc);
 
         return () => {
             window.removeEventListener('scroll', handleViewportChange);
-            window.removeEventListener('resize', handleViewportChange);
+            window.removeEventListener('resize', resizeFunc);
 
             if (rafId) {
                 window.cancelAnimationFrame(rafId);
@@ -54,17 +77,8 @@ export default function Hero() {
         <section ref={heroRef} className={styles.hero}>
             {/* <Image className={styles.heroBgMob} src="/images/hero-m.jpg"  alt="hero bg mobile" quality={100} loading="eager" sizes="100vw" fill priority/>
             <Image className={styles.heroBg} src="/images/hero-b.jpg"  alt="hero bg" quality={100} loading="eager" width="3840" height="2924" priority/> */}
-            <video autoPlay muted loop playsInline preload="auto">
-                <source
-                    src="/video/hero_m.mp4"
-                    type="video/mp4"
-                    media="(max-width: 768px)"
-                />
-                <source
-                    src="/video/hero_d.mp4"
-                    type="video/mp4"
-                    media="(min-width: 769px)"
-                />
+            <video autoPlay muted loop playsInline preload="auto" key={src}>
+                <source src={src} type="video/mp4" />
             </video>
             <div className={clsx("m-container", styles.heroContainer)}>
                 <div className={styles.heroTextPart}>
