@@ -20,16 +20,16 @@ export default function Hero() {
             return;
         }
 
-        // const updateVideoSrc = () => {
-        //     const nextSrc =
-        //     window.innerWidth < 1080
-        //         ? '/video/hero_m.mp4'
-        //         : '/video/hero_d.mp4';
+        const updateVideoSrc = () => {
+            const nextSrc =
+            window.innerWidth < 1080
+                ? '/video/hero_m.mp4'
+                : '/video/hero_d.mp4';
 
-        //     setSrc((currentSrc) => {
-        //     return currentSrc === nextSrc ? currentSrc : nextSrc;
-        //     });
-        // };
+            setSrc((currentSrc) => {
+            return currentSrc === nextSrc ? currentSrc : nextSrc;
+            });
+        };
 
         let rafId = 0;
 
@@ -61,7 +61,7 @@ export default function Hero() {
         };
 
         updateHeroButtonState();
-        //updateVideoSrc();
+        updateVideoSrc();
 
         window.addEventListener('scroll', handleViewportChange, { passive: true });
         window.addEventListener('resize', resizeFunc);
