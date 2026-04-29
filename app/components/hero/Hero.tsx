@@ -11,7 +11,7 @@ const HERO_D_V_URL = "/video/hero_d.mp4";
 export default function Hero() {
     const heroRef = useRef<HTMLElement>(null);
     const [isHeroButtonEnd, setIsHeroButtonEnd] = useState(false);
-    const [src, setSrc] = useState('/video/hero_m.mp4');
+    const [src, setSrc] = useState('');
 
     // const nextSrc = window.innerWidth < 1080 ? '/video/hero_m.mp4' : '/video/hero_d.mp4';
 
@@ -84,10 +84,10 @@ export default function Hero() {
             {/* <Image className={styles.heroBgMob} src="/images/hero-m.jpg"  alt="hero bg mobile" quality={100} loading="eager" sizes="100vw" fill priority/> */}
             
             {/* {src && <video autoPlay muted loop playsInline preload="auto" key={src}><source src={src} type="video/mp4" /></video>} */}
-            <video autoPlay muted loop playsInline preload="auto" key={src}>
+            {src && <video autoPlay muted loop playsInline preload="auto" key={src}>
                 <source src={src} type="video/mp4" />
-            </video>
-            {src !== HERO_D_V_URL && <Image className={styles.heroBg} src="/images/hero-b.jpg"  alt="hero bg" quality={100} loading="eager" width="3840" height="2924" priority/>}
+            </video>}
+            {/* <Image className={styles.heroBg} src="/images/hero-b.jpg"  alt="hero bg" quality={100} loading="eager" width="3840" height="2924" priority/> */}
             
             <div className={clsx("m-container", styles.heroContainer)}>
                 <div className={styles.heroTextPart}>
