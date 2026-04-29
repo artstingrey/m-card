@@ -10,29 +10,37 @@ const HERO_D_V_URL = "/video/hero_d.mp4";
 
 export default function Hero() {
     const heroRef = useRef<HTMLElement>(null);
+    
     const [isHeroButtonEnd, setIsHeroButtonEnd] = useState(false);
     const [src, setSrc] = useState<string | null>(null);
+
+    const videoRef = useRef<HTMLVideoElement>(null);
+    const [isVideoReady, setIsVideoReady] = useState(false);
+
 
     // const nextSrc = window.innerWidth < 1080 ? '/video/hero_m.mp4' : '/video/hero_d.mp4';
 
 
     useEffect(() => {
         const hero = heroRef.current;
+        const video = videoRef.current;
 
         if (!hero) {
             return;
         }
 
         const updateVideoSrc = () => {
-            const nextSrc =
-            window.innerWidth < 1080
-                ? '/video/hero_m.mp4'
-                : '/video/hero_d.mp4';
+            if(video) {
+                const nextSrc =
+                    window.innerWidth < 1080
+                    ? '/video/hero_m.mp4'
+                    : '/video/hero_d.mp4';
 
-            setSrc((currentSrc) => {
-                return currentSrc === nextSrc ? currentSrc : nextSrc;
-            });
-            
+                video.src = nextSrc;
+                video.load();
+
+                video.play().catch(() => {});
+            }
         };
 
         let rafId = 0;
@@ -61,7 +69,7 @@ export default function Hero() {
 
         const resizeFunc = () => {
             handleViewportChange();
-            updateVideoSrc();
+            // updateVideoSrc();
         };
 
         updateHeroButtonState();
@@ -83,8 +91,8 @@ export default function Hero() {
     return (
         <section ref={heroRef} className={styles.hero}>
             {/* {src && <video autoPlay muted loop playsInline preload="auto" key={src}><source src={src} type="video/mp4" /></video>} */}
-            <video autoPlay muted loop playsInline preload="auto" key={src}>
-                <source src={src || undefined} type="video/mp4" />
+            <video ref={videoRef} autoPlay muted loop playsInline preload="auto" key={src} onLoadedData={() => setIsVideoReady(true)}>
+                
             </video>
 
             {/* {!firstState && <Image className={styles.heroBgMob} src="/images/hero-m.jpg"  alt="hero bg mobile" quality={100} loading="eager" sizes="100vw" fill priority/>}
