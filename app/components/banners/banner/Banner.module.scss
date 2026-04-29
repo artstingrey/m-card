@@ -17,7 +17,6 @@
     // transform: rotate(calc(var(--banner-progress) * var(--banner-rotate-end) * 1deg)) scale(1 - var(--banner-progress));
     will-change: transform;
     transition: transform 0.2s ease-out border-radius 0.2s ease;
-    border: 2px solid red;
 
     h2 {
         margin: 0;
@@ -57,13 +56,11 @@
     position: relative;
     padding-top: 90%;
     overflow: hidden;
-    border: 2px solid blue;
 
     img {
         position: absolute;
         left: 0;
         bottom: 0;
-        border: 2px solid rgb(0, 0, 0);
         width: 100%;
 
         &:nth-child(2) {
@@ -87,7 +84,6 @@
 .bannerWrapper {
     position: relative;
     z-index: 2;
-    border: 2px solid green;
 }
 
 @media only screen and (min-width: $break-point-tablet) {
