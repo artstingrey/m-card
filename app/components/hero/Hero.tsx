@@ -57,7 +57,7 @@ export default function Hero() {
 
         const resizeFunc = () => {
             handleViewportChange();
-            //updateVideoSrc();
+            updateVideoSrc();
         };
 
         updateHeroButtonState();
