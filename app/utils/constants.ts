@@ -6,3 +6,4 @@ export const SUPPORT_URL = 'https://t.me/MCardPay_Support';
 export const TELEGRAM_URL = 'https://t.me/MCardsofficial';
 export const INSTAGRAM_URL = 'https://www.instagram.com/mcards_official/';
 export const YOUTUBE_URL = 'https://www.youtube.com/@MCards_official';
+export const SITE_URL = 'https://mcard.cc/';
