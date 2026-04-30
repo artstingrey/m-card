@@ -4,19 +4,13 @@ import { clsx } from 'clsx';
 import styles from './Hero.module.scss';
 import { useEffect, useRef, useState } from 'react';
 import Socials from '../core/socials/Socials';
-import Image from "next/image";
 import { TG_BOT_URL } from '@/app/utils/constants';
 
-const HERO_D_V_URL = "/video/hero_d.mp4";
 
 export default function Hero() {
     const heroRef = useRef<HTMLElement>(null);
     
     const [isHeroButtonEnd, setIsHeroButtonEnd] = useState(false);
-    const [src, setSrc] = useState<string | null>(null);
-
-    const videoRef = useRef<HTMLVideoElement>(null);
-    const [isVideoReady, setIsVideoReady] = useState(false);
 
     useEffect(() => {
         const hero = heroRef.current;

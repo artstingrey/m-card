@@ -22,7 +22,7 @@ const BANNERS_LIST = [
             height: 640,
             alt: 'Banner image'
         },
-        imageMobPos: 26, 
+        imageMobPos: 42, 
         imagePos: 'center' as const,
         wordType: 'topUp' as const,
         wordColor: '#ECE3DB'
@@ -43,7 +43,7 @@ const BANNERS_LIST = [
             height: 640,
             alt: 'Banner image'
         },
-        imageMobPos: 26, 
+        imageMobPos: 46, 
         imagePos: 'center' as const,
         wordType: 'topUp' as const,
         wordColor: '#ECB9EB'
@@ -64,7 +64,7 @@ const BANNERS_LIST = [
             height: 640,
             alt: 'Banner image'
         },
-        imageMobPos: 44, 
+        imageMobPos: 72, 
         imagePos: 'bottom' as const,
         wordType: 'spend' as const,
         wordColor: '#73CCF7'
@@ -85,7 +85,7 @@ const BANNERS_LIST = [
             height: 654,
             alt: 'Banner image'
         },
-        imageMobPos: 3, 
+        imageMobPos: 66, 
         imagePos: 'bottom' as const,
         wordType: 'spend' as const,
         wordColor: '#ECE3DB'
@@ -106,7 +106,7 @@ const BANNERS_LIST = [
             height: 640,
             alt: 'Banner image'
         },
-        imageMobPos: 28, 
+        imageMobPos: 78, 
         imagePos: 'center' as const,
         wordType: 'ownIt' as const,
         wordColor: '#ECB9EB'
@@ -128,7 +128,7 @@ const BANNERS_LIST = [
             height: 640,
             alt: 'Banner image'
         },
-        imageMobPos: 0,
+        imageMobPos: 82,
         imagePos: 'center' as const,
         wordType: 'getHelp' as const,
         wordColor: '#353535'

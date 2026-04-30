@@ -20,6 +20,7 @@
     background: #F4EFE8;
     padding: 24px;
     border-radius: 18px;
+    min-height: 212px;
 
     h3 {
         margin: 0;
@@ -32,10 +33,12 @@
     p {
         margin: 0;
         color: $color-black90;
+        min-height: 64px;
     }
 
     .commissionPrice {
         margin-top: 8px;
+        min-height: 100%;
     }
 
     &:last-child {
@@ -76,6 +79,12 @@
 }
 
 @media only screen and (min-width: $break-point-tablet) {
+    .commissionItem {
+        min-height: 228px;
+    }    
+}
+
+@media only screen and (min-width: $break-point-tablet) {
     .commissionsContainer {
         max-width: 100%;
         margin-left: 0;
@@ -87,6 +96,7 @@
 
     .commissionItem {
         width: calc(50% - 10px);
+        min-height: 100%;
     }
 }
 

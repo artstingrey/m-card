@@ -49,8 +49,8 @@ export default function Banner ({index,progress = 0,title,text,color,textColor =
                 <WordComponent color={wordColor} />
             </div>
             <div className={styles.bannerWrapper}>
-                <div className={clsx(styles.image, imagePos == "bottom" ? styles.imageBottom : '')}>
-                    <Image src={imageMob.src} alt={imageMob.alt || "Banner image"} quality={100} width={imageMob.width} height={imageMob.height} style={{bottom: -imageMobPos + "px"}}/>
+                <div className={clsx(styles.image, imagePos == "bottom" ? styles.imageBottom : '')} style={{paddingTop: imageMobPos + "px"}}>
+                    <Image src={imageMob.src} alt={imageMob.alt || "Banner image"} quality={100} width={imageMob.width} height={imageMob.height} />
                     <Image src={image.src} alt={image.alt || "Banner image"} quality={100} width={image.width} height={image.height}/>    
                 </div>
                 <div className={clsx(styles.textPart, textColor == 'white' ? styles.textPartWhite : '')}>
