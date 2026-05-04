@@ -39,7 +39,7 @@ export default function MenuSection({isActive, closeMenu}:MenuSectionProps) {
                 </nav>
 
                 <div className="mobile-menu__footer">
-                    <a href={TG_BOT_URL} target="_blank" className="s-button" rel="nonoopener nofollow">Запустить MCard</a>
+                    <a href={TG_BOT_URL} target="_blank" className="s-button" rel="nonoopener nofollow">Открыть MCard</a>
                 </div>
             </div>    
         </div>

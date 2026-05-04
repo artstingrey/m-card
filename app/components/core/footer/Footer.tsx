@@ -22,7 +22,7 @@ export default function Footer() {
                 <div className={styles.footerMiddle}>
                     <div className={styles.footerTitle}>
                         <h2>Трать так,  будто никто не<br></br> смотрит</h2>
-                        <LaunchButton text="Запустить MCard" labelPosition="top-left" href={TG_BOT_URL} target="_blank"/>
+                        <LaunchButton text="Открыть MCard" labelPosition="top-left" href={TG_BOT_URL} target="_blank"/>
                     </div>
                     <div className={styles.footerMenuWrapper}>
                         <div className={styles.footerMenuColumn}>

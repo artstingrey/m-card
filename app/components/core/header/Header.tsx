@@ -162,7 +162,7 @@ export default function Header({ color = '' }: HeaderProps) {
 
                 <div className="header__right_part"> 
                   <div className="s-button-launch-wrapper-reverse">
-                    <Link href={TG_BOT_URL} target="_blank" className="s-button s-button--small" rel="nonoopener nofollow">Запустить MCard</Link>
+                    <Link href={TG_BOT_URL} target="_blank" className="s-button s-button--small" rel="nonoopener nofollow">Открыть MCard</Link>
                     <QrButton isSmall={true} color="white-transparent" clickEvent={openMenu} mouseEnter={() => {setIshover(true);}} />
                   </div>
                 </div>

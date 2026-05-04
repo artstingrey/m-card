@@ -56,7 +56,7 @@ export default function Banner ({index,progress = 0,title,text,color,textColor =
                 <div className={clsx(styles.textPart, textColor == 'white' ? styles.textPartWhite : '')}>
                     <h2>{title}</h2>
                     <p>{text}</p>
-                    <LaunchButton text='Запустить MCard' labelPosition='top-left' styles={styles.launch} href={TG_BOT_URL} target='_blank'/>
+                    <LaunchButton text='Открыть MCard' labelPosition='top-left' styles={styles.launch} href={TG_BOT_URL} target='_blank'/>
                 </div>
             </div>
         </div>

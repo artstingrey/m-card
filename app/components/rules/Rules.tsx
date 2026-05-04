@@ -30,7 +30,7 @@ export default function Rules () {
                         Твои деньги — твои правила.<br></br> Трать где угодно
                     </h2>
                     <p>Оформите за секунды в Telegram — платите везде, где есть Mastercard.</p>
-                    <LaunchButton text="Запустить MCard" color="white" qrColor="white-transparent" labelPosition="bottom" href={TG_BOT_URL} target="_blank" styles={styles.rulesButton}/>    
+                    <LaunchButton text="Открыть MCard" color="white" qrColor="white-transparent" labelPosition="bottom" href={TG_BOT_URL} target="_blank" styles={styles.rulesButton}/>    
                 </div>
             </div>
         </section>
