@@ -294,3 +294,9 @@
         max-width: 100%;
     }
 }
+
+@media (min-width: 1080px) and (min-height: 800px) and (max-height: 960px) {
+  .hero {
+    height: 100vh;
+  }
+}
